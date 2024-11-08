@@ -76,7 +76,7 @@ function strStr(word, str) {
 }
 // console.log(strStr("mississippi", "issi"));
 
-// Given a sorted array of distinct integers and a target value, return the index if the target
+// 5) Given a sorted array of distinct integers and a target value, return the index if the target
 // is found. If not, return the index where it would be if it were inserted in order.
 // You must write an algorithm with O(log n) runtime complexity.
 // Input: nums = [1,3,5,6], target = 5
@@ -100,4 +100,16 @@ function searchInsert(arr, target) {
 }
 let array1 = [1, 3, 5, 6];
 let target1 = 5;
-console.log(searchInsert(array1, target1));
+// console.log(searchInsert(array1, target1));
+
+// 6) Given a string s consisting of words and spaces, return the length of the last word in the string.
+// A word is a maximal substring consisting of non-space characters only.
+// Input: s = "Hello World"
+// Output: 5
+// Explanation: The last word is "World" with length 5.
+
+function lengthOfLastWord(str) {
+  let strSplit = str.trim().split(" ");
+  return strSplit[strSplit.length - 1].length;
+}
+console.log(lengthOfLastWord("   fly me   to   the moon  "));
