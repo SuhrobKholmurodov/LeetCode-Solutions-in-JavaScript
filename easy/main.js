@@ -114,7 +114,6 @@ function lengthOfLastWord(str) {
 }
 // console.log(lengthOfLastWord("   fly me   to   the moon  "));
 
-
 // 7) You are climbing a staircase. It takes n steps to reach the top.
 // Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
 // Input: n = 2
@@ -140,3 +139,25 @@ function climbStairs(n) {
   return total;
 }
 // console.log(climbStairs(2));
+
+// 8) Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+// You must implement a solution with a linear runtime complexity and use only constant extra space.
+// Input: nums = [4,1,2,1,2]
+// Output: 4
+
+function get(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let isUnique = true;
+    for (let j = 0; j < arr.length; j++) {
+      if (i !== j && arr[i] === arr[j]) {
+        isUnique = false;
+        break;
+      }
+    }
+    if (isUnique) {
+      return arr[i];
+    }
+  }
+  return -1;
+}
+console.log(get([1, 2, 3, 2, 1]));
