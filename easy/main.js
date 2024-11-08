@@ -40,7 +40,6 @@ function isPalindrome(num) {
 // Output: "fl"
 
 function longestCommonPrefix(strs) {
-
   let prefix = strs[0];
 
   for (let i = 1; i < strs.length; i++) {
@@ -51,6 +50,29 @@ function longestCommonPrefix(strs) {
   }
   return prefix;
 }
-
 let strings = ["flower", "flow", "flight"];
 // console.log(longestCommonPrefix(strings));
+
+
+// 4) Given two strings needle and haystack, return the index of the first occurrence of
+// needle in haystack, or -1 if needle is not part of haystack.
+// Input: haystack = "sadbutsad", needle = "sad"
+// Output: 0
+// Explanation: "sad" occurs at index 0 and 6.
+
+function strStr(word, str) {
+  let res = "";
+  for (let i = 0; i < word.length; i++) {
+    res += word[i];
+
+    if (res.length > str.length) {
+      res = res.slice(1);
+    }
+
+    if (res === str) {
+      return i - str.length + 1;
+    }
+  }
+  return -1;
+}
+// console.log(strStr("mississippi", "issi")); 
