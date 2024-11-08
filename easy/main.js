@@ -16,4 +16,20 @@ function twoSum(nums, target) {
 
 let array = [2, 7, 11, 15];
 let target = 9;
-console.log(twoSum(array, target));
+// console.log(twoSum(array, target));
+
+// 2) Given an integer x, return true if x is a palindrome, and false otherwise.
+// Input: x = 121
+// Output: true
+// Explanation: 121 reads as 121 from left to right and from right to left.
+
+function isPalindrome(num) {
+  let reversed = 0;
+  let temp = num;
+  while (temp > 0) {
+    reversed = reversed * 10 + (temp % 10);
+    temp = Math.floor(temp / 10);
+  }
+  return reversed === num;
+}
+console.log(isPalindrome(121));
