@@ -32,4 +32,25 @@ function isPalindrome(num) {
   }
   return reversed === num;
 }
-console.log(isPalindrome(121));
+// console.log(isPalindrome(121));
+
+// 3) Write a function to find the longest common prefix string amongst an array of strings.
+// If there is no common prefix, return an empty string "".
+// Input: strs = ["flower","flow","flight"]
+// Output: "fl"
+
+function longestCommonPrefix(strs) {
+
+  let prefix = strs[0];
+
+  for (let i = 1; i < strs.length; i++) {
+    while (strs[i].indexOf(prefix) !== 0) {
+      prefix = prefix.substring(0, prefix.length - 1);
+      if (prefix.length === 0) return "";
+    }
+  }
+  return prefix;
+}
+
+let strings = ["flower", "flow", "flight"];
+// console.log(longestCommonPrefix(strings));
