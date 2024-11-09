@@ -163,7 +163,7 @@ function singleNumber(arr) {
 // console.log(singleNumber([1, 2, 3, 2, 1]));
 
 // 9) Given an array nums of size n, return the majority element.
-// The majority element is the element that appears more than ⌊n / 2⌋ times. 
+// The majority element is the element that appears more than ⌊n / 2⌋ times.
 // You may assume that the majority element always exists in the array.
 // Input: nums = [3,2,3]
 // Output: 3
@@ -181,4 +181,24 @@ function majorityElement(array) {
 
   return cur;
 }
-console.log(majorityElement([3,2,3]));
+// console.log(majorityElement([3, 2, 3]));
+
+// 10) Given an integer num, repeatedly add all its digits until the result has only one digit, and return it.
+// Input: num = 38
+// Output: 2
+// Explanation: The process is
+// 38 --> 3 + 8 --> 11
+// 11 --> 1 + 1 --> 2
+// Since 2 has only one digit, return it.
+
+function addDigits(num) {
+  if (num < 10) {
+    return num;
+  }
+  let a = (num % 10) + addDigits(Math.floor(num / 10));
+  if (a >= 10) {
+    return addDigits(a);
+  }
+  return a;
+}
+console.log(addDigits(38));
