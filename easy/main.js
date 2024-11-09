@@ -237,3 +237,17 @@ function isPowerOfThree(num) {
   return num === 1;
 }
 // console.log(isPowerOfThree(81));
+
+// 13) Given an integer n, return true if it is a power of four. Otherwise, return false.
+// An integer n is a power of four, if there exists an integer x such that n == 4x.
+// Input: n = 16
+// Output: true
+
+function isPowerOfFour(num) {
+  if (num <= 0) return false;
+  while (num % 4 === 0) {
+    num /= 4;
+  }
+  return num === 1;
+}
+// console.log(isPowerOfFour(16));
