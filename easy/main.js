@@ -145,7 +145,7 @@ function climbStairs(n) {
 // Input: nums = [4,1,2,1,2]
 // Output: 4
 
-function get(arr) {
+function singleNumber(arr) {
   for (let i = 0; i < arr.length; i++) {
     let isUnique = true;
     for (let j = 0; j < arr.length; j++) {
@@ -160,4 +160,25 @@ function get(arr) {
   }
   return -1;
 }
-console.log(get([1, 2, 3, 2, 1]));
+// console.log(singleNumber([1, 2, 3, 2, 1]));
+
+// 9) Given an array nums of size n, return the majority element.
+// The majority element is the element that appears more than ⌊n / 2⌋ times. 
+// You may assume that the majority element always exists in the array.
+// Input: nums = [3,2,3]
+// Output: 3
+
+function majorityElement(array) {
+  let cur = null;
+  let cnt = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    if (cnt === 0) {
+      cur = array[i];
+    }
+    cnt += array[i] === cur ? 1 : -1;
+  }
+
+  return cur;
+}
+console.log(majorityElement([3,2,3]));
