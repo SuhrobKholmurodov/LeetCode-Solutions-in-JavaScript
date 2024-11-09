@@ -271,3 +271,12 @@ function search(array, target) {
   return -1;
 }
 // console.log(search([-1, 0, 3, 5, 9, 12], 9));
+
+// 15) Given a string s, return the string after replacing every uppercase letter with the same lowercase letter.
+// Input: s = "Hello"
+// Output: "hello"
+
+function toLowerCase(str) {
+  return str.toLowerCase();
+}
+// console.log(toLowerCase("Hello"));
