@@ -222,3 +222,18 @@ function missingNumber(array) {
   return array.length;
 }
 // console.log(missingNumber([1, 2]));
+
+// 12) Given an integer n, return true if it is a power of three. Otherwise, return false.
+// An integer n is a power of three, if there exists an integer x such that n == 3x.
+// Input: n = 27
+// Output: true
+// Explanation: 27 = 33
+
+function isPowerOfThree(num) {
+  if (num <= 0) return false;
+  while (num % 3 === 0) {
+    num /= 3;
+  }
+  return num === 1;
+}
+// console.log(isPowerOfThree(81));
