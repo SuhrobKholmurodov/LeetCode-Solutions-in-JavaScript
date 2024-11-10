@@ -418,9 +418,24 @@ function expect(val) {
 // } catch (error) {
 //   console.log({ error: error.message });
 // }
-
 // try {
 //   console.log(expect(5).notToBe(5));
 // } catch (error) {
 //   console.log({ error: error.message });
 // }
+
+// 24) Write a function createHelloWorld. It should return a new function that always returns "Hello World"
+// Input: args = []
+// Output: "Hello World"
+// Explanation:
+// const f = createHelloWorld();
+// f(); // "Hello World"
+// The function returned by createHelloWorld should always return "Hello World".
+
+function createHelloWorld() {
+  return function () {
+    return "Hello World";
+  };
+}
+const f = createHelloWorld();
+// console.log(f({}, null, 42));
