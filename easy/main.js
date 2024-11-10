@@ -312,4 +312,14 @@ function sortArrayByParity(array) {
     return (a % 2) - (b % 2);
   });
 }
-console.log(sortArrayByParity([3, 1, 2, 4]));
+// console.log(sortArrayByParity([3, 1, 2, 4]));
+
+// 18) Given a valid (IPv4) IP address, return a defanged version of that IP address.
+// A defanged IP address replaces every period "." with "[.]".
+// Input: address = "1.1.1.1"
+// Output: "1[.]1[.]1[.]1"
+
+function defangIPaddr(str) {
+  return str.replace(/\./g, "[.]");
+}
+// console.log(defangIPaddr("1.1.1.1"));
