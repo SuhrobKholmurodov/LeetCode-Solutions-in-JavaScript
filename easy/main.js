@@ -372,4 +372,16 @@ function chunk(array, size) {
   }
   return result;
 }
-console.log(chunk([1, 2, 3, 4, 5], 1));
+// console.log(chunk([1, 2, 3, 4, 5], 1));
+
+// 22) Write a function argumentsLength that returns the count of arguments passed to it.
+// Input: args = [{}, null, "3"]
+// Output: 3
+// Explanation:
+// argumentsLength({}, null, "3"); // 3
+// Three values were passed to the function so it should return 3.
+
+function argumentsLength(...arg) {
+  return arg.length;
+}
+// console.log(argumentsLength({}, null, "3"));
