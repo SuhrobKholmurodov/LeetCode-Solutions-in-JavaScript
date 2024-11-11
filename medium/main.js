@@ -41,3 +41,27 @@ function singleNumber(array) {
   );
 }
 // console.log(singleNumber([2, 2, 3, 2]));
+
+// 3) Given an integer array nums, return the maximum difference between two successive elements in its sorted form. 
+// If the array contains less than two elements, return 0.
+// You must write an algorithm that runs in linear time and uses linear extra space.
+// Input: nums = [3,6,9,1]
+// Output: 3
+// Explanation: The sorted form of the array is [1,3,6,9], either (3,6) or (6,9) has the maximum difference 3.
+
+function maximumGap(arr) {
+  if (arr.length < 2) {
+    return 0;
+  }
+  let sortedArr = [...arr].sort((a, b) => {
+    return a - b;
+  });
+  let maxElem = 0;
+  for (let i = 0; i < sortedArr.length - 1; i++) {
+    if (sortedArr[i + 1] - sortedArr[i] > maxElem) {
+      maxElem = sortedArr[i + 1] - sortedArr[i];
+    }
+  }
+  return maxElem;
+}
+// console.log(maximumGap([1, 3, 100]));
