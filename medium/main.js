@@ -42,7 +42,7 @@ function singleNumber(array) {
 }
 // console.log(singleNumber([2, 2, 3, 2]));
 
-// 3) Given an integer array nums, return the maximum difference between two successive elements in its sorted form. 
+// 3) Given an integer array nums, return the maximum difference between two successive elements in its sorted form.
 // If the array contains less than two elements, return 0.
 // You must write an algorithm that runs in linear time and uses linear extra space.
 // Input: nums = [3,6,9,1]
@@ -65,3 +65,27 @@ function maximumGap(arr) {
   return maxElem;
 }
 // console.log(maximumGap([1, 3, 100]));
+
+// 4) Given an integer array nums, in which exactly two elements appear only once and all the other
+// elements appear exactly twice. Find the two elements that appear only once. You can return the answer in any order.
+// You must write an algorithm that runs in linear runtime complexity and uses only constant extra space.
+// Input: nums = [1,2,1,3,2,5]
+// Output: [3,5]
+// Explanation:  [5, 3] is also a valid answer.
+
+function singleNumber(array) {
+  let res = {};
+  for (let i = 0; i < array.length; i++) {
+    if (res[array[i]]) {
+      res[array[i]]++;
+    } else {
+      res[array[i]] = 1;
+    }
+  }
+  return Object.keys(res)
+    .filter((el) => {
+      return res[el] === 1;
+    })
+    .map(Number);
+}
+// console.log(singleNumber([1, 2, 1, 3, 2, 5]));
