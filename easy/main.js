@@ -437,7 +437,7 @@ function createHelloWorld() {
     return "Hello World";
   };
 }
-const f = createHelloWorld();
+// const f = createHelloWorld();
 // console.log(f({}, null, 42));
 
 // 25) You are given a large integer represented as an integer array digits,
@@ -520,4 +520,5 @@ function maximum69Number(num) {
   }
   return maxNum;
 }
-// console.log(maximum69Number(9669));
+// console.log(maximum69Number(6669));
+
