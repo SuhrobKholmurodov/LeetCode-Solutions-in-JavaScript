@@ -106,4 +106,13 @@ function findDuplicate(array) {
   }
   return -1;
 }
-console.log(findDuplicate([1, 3, 4, 2, 2]));
+// console.log(findDuplicate([1, 3, 4, 2, 2]));
+
+// 6) Given two integers a and b, return the sum of the two integers without using the operators + and -.
+// Input: a = 2, b = 3
+// Output: 5
+ 
+function getSum(a, b) {
+  return (a += b);
+}
+// console.log(getSum(2, 3));
