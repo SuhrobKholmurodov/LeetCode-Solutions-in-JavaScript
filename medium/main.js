@@ -89,3 +89,21 @@ function singleNumber(array) {
     .map(Number);
 }
 // console.log(singleNumber([1, 2, 1, 3, 2, 5]));
+
+// 5) Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
+// There is only one repeated number in nums, return this repeated number.
+// You must solve the problem without modifying the array nums and using only constant extra space
+// Input: nums = [1,3,4,2,2]
+// Output: 2
+
+function findDuplicate(array) {
+  let isElem = {};
+  for (let i = 0; i < array.length; i++) {
+    if (isElem[array[i]]) {
+      return array[i];
+    }
+    isElem[array[i]] = true;
+  }
+  return -1;
+}
+console.log(findDuplicate([1, 3, 4, 2, 2]));
