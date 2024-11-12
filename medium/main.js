@@ -111,8 +111,34 @@ function findDuplicate(array) {
 // 6) Given two integers a and b, return the sum of the two integers without using the operators + and -.
 // Input: a = 2, b = 3
 // Output: 5
- 
+
 function getSum(a, b) {
   return (a += b);
 }
 // console.log(getSum(2, 3));
+
+// 7) Given a signed 32-bit integer x, return x with its digits reversed. 
+// If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.
+// Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
+// Input: x = 123
+// Output: 321
+
+function reverse(num) {
+  let reversedNum = 0;
+  const negNum = num < 0;
+  num = Math.abs(num);
+
+  while (num !== 0) {
+    const digit = num % 10;
+
+    if (reversedNum > (2147483647 - digit) / 10) {
+      return 0;
+    }
+
+    reversedNum = reversedNum * 10 + digit;
+    num = Math.floor(num / 10);
+  }
+
+  return negNum ? -reversedNum : reversedNum;
+}
+// console.log(reverse(-2147483648));
