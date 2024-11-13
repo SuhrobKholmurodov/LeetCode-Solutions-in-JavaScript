@@ -523,3 +523,24 @@ function maximum69Number(num) {
 }
 // console.log(maximum69Number(6669));
 
+// 28) You are given an integer array nums. The unique elements of an array are the elements that appear exactly once in the array.
+// Return the sum of all the unique elements of nums.
+// Input: nums = [1,2,3,2]
+// Output: 4
+// Explanation: The unique elements are [1,3], and the sum is 4.
+
+function sumOfUnique(array) {
+  let obj = {};
+  for (let i = 0; i < array.length; i++) {
+    if (obj[array[i]]) {
+      obj[array[i]]++;
+    } else {
+      obj[array[i]] = 1;
+    }
+  }
+  let newObj = Object.keys(obj)
+    .filter((key) => obj[key] == 1)
+    .map(Number);
+  return newObj.reduce((a, b) => a + b, 0);
+}
+// console.log(sumOfUnique([1, 2, 3, 2]));
