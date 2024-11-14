@@ -544,3 +544,29 @@ function sumOfUnique(array) {
   return newObj.reduce((a, b) => a + b, 0);
 }
 // console.log(sumOfUnique([1, 2, 3, 2]));
+
+// 29) Given an alphanumeric string s, return the second largest numerical digit that appears in s, or -1 if it does not exist.
+// An alphanumeric string is a string consisting of lowercase English letters and digits.
+// Input: s = "dfa12321afd"
+// Output: 2
+// Explanation: The digits that appear in s are [1, 2, 3]. The second largest digit is 2.
+
+function secondHighest(str) {
+  let strSplit = str.split("").map(Number);
+  let numElem = strSplit.filter((el) => !isNaN(el));
+
+  let uniqueElem = [];
+  for (let i = 0; i < numElem.length; i++) {
+    if (!uniqueElem.includes(numElem[i])) {
+      uniqueElem.push(numElem[i]);
+    }
+  }
+
+  if (uniqueElem.length < 2) {
+    return -1;
+  }
+
+  uniqueElem.sort((a, b) => b - a);
+  return uniqueElem[1];
+}
+// console.log(secondHighest("dfa12321afd"));
