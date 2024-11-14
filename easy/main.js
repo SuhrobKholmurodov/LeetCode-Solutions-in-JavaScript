@@ -619,7 +619,7 @@ function maxPower(str) {
 
 // 32) Given two integer arrays startTime and endTime and given an integer queryTime.
 // The ith student started doing their homework at the time startTime[i] and finished it at time endTime[i].
-// Return the number of students doing their homework at time queryTime. More formally, 
+// Return the number of students doing their homework at time queryTime. More formally,
 // return the number of students where queryTime lays in the interval [startTime[i], endTime[i]] inclusive.
 // Input: startTime = [1,2,3], endTime = [3,2,7], queryTime = 4
 // Output: 1
@@ -638,3 +638,22 @@ function busyStudent(startTime, endTime, queryTime) {
   return cnt;
 }
 // console.log(busyStudent([1, 2, 3], [3, 2, 7], 4));
+
+// 33) Given an array of integers nums, return the number of good pairs.
+// A pair (i, j) is called good if nums[i] == nums[j] and i < j.
+// Input: nums = [1,2,3,1,1,3]
+// Output: 4
+// Explanation: There are 4 good pairs (0,3), (0,4), (3,4), (2,5) 0-indexed.
+
+function numIdenticalPairs(array) {
+  let cnt = 0;
+  for (let i = 0; i < array.length; i++) {
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[i] === array[j] && i < j) {
+        cnt++;
+      }
+    }
+  }
+  return cnt;
+}
+// console.log(numIdenticalPairs([1, 2, 3, 1, 1, 3]));
