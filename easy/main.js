@@ -673,3 +673,20 @@ function countOdds(low, high) {
   return cnt;
 }
 // console.log(countOdds(3, 7));
+
+// 35) You are given a string s and an integer array indices of the same length.
+// The string s will be shuffled such that the character at the ith position moves to indices[i] in the shuffled string.
+// Return the shuffled string.
+// Input: s = "codeleet", indices = [4,5,6,7,0,2,1,3]
+// Output: "leetcode"
+// Explanation: As shown, "codeleet" becomes "leetcode" after shuffling.
+
+function restoreString(str, ind) {
+  let strSplit = str.split("");
+  let res = "";
+  for (let i = 0; i < str.length; i++) {
+    res += strSplit[ind.indexOf(i)];
+  }
+  return res;
+}
+// console.log(restoreString("codeleet", [4, 5, 6, 7, 0, 2, 1, 3]));
