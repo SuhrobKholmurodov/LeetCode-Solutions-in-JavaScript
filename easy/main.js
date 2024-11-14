@@ -690,3 +690,33 @@ function restoreString(str, ind) {
   return res;
 }
 // console.log(restoreString("codeleet", [4, 5, 6, 7, 0, 2, 1, 3]));
+
+// 36) Given an array arr of positive integers sorted in a strictly increasing order, and an integer k.
+// Return the kth positive integer that is missing from this array.
+// Input: arr = [2,3,4,7,11], k = 5
+// Output: 9
+// Explanation: The missing positive integers are [1,5,6,8,9,10,12,13,...]. The 5th missing positive integer is 9.
+
+function findKthPositive(array, k) {
+  let res = [];
+  for (let i = 1; i < array[0]; i++) {
+    res.push(i);
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i + 1] - array[i] !== 1) {
+      for (let j = array[i] + 1; j < array[i + 1]; j++) {
+        res.push(j);
+      }
+    }
+  }
+
+  let last = array[array.length - 1];
+  while (res.length < k) {
+    res.push(last + 1);
+    last++;
+  }
+  return res[k - 1];
+}
+// console.log(findKthPositive([2, 3, 4, 7, 11], 5));
+
