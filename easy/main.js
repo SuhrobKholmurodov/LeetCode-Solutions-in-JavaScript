@@ -734,3 +734,24 @@ function threeConsecutiveOdds(array) {
   return false;
 }
 // console.log(threeConsecutiveOdds([2, 6, 4, 1]));
+
+// 38) Given an integer n, add a dot (".") as the thousands separator and return it in string format.
+// Input: n = 1234
+// Output: "1.234"
+
+function thousandSeparator(num) {
+  let str = num.toString();
+  let strSplit = str.split("");
+  let res = [];
+  let cnt = 0;
+  for (let i = strSplit.length - 1; i >= 0; i--) {
+    res.push(strSplit[i]);
+    cnt++;
+    if (cnt === 3 && i !== 0) {
+      res.push(".");
+      cnt = 0; 
+    }
+  }
+  return res.reverse().join("");
+}
+// console.log(thousandSeparator(1234)); 
