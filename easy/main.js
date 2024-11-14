@@ -720,3 +720,17 @@ function findKthPositive(array, k) {
 }
 // console.log(findKthPositive([2, 3, 4, 7, 11], 5));
 
+// 37) Given an integer array arr, return true if there are three consecutive odd numbers in the array. Otherwise, return false.
+// Input: arr = [2,6,4,1]
+// Output: false
+// Explanation: There are no three consecutive odds.
+
+function threeConsecutiveOdds(array) {
+  for (let i = 0; i < array.length - 2; i++) {
+    if (array[i] % 2 == 1 && array[i + 1] % 2 == 1 && array[i + 2] % 2 == 1) {
+      return true;
+    }
+  }
+  return false;
+}
+// console.log(threeConsecutiveOdds([2, 6, 4, 1]));
