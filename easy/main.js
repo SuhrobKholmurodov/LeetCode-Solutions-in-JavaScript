@@ -594,3 +594,25 @@ function kidsWithCandies(array, num) {
   return res;
 }
 // console.log(kidsWithCandies([2, 3, 5, 1, 3], 3));
+
+// 31) The power of the string is the maximum length of a non-empty substring that contains only one unique character.
+// Given a string s, return the power of s.
+// Input: s = "leetcode"
+// Output: 2
+// Explanation: The substring "ee" is of length 2 with the character 'e' only.
+
+function maxPower(str) {
+  let strSplit = str.split("");
+  let cnt = 1;
+  let maxElem = 1;
+  for (let i = 0; i < strSplit.length; i++) {
+    if (strSplit[i] === strSplit[i + 1]) {
+      cnt++;
+    } else {
+      maxElem = Math.max(maxElem, cnt);
+      cnt = 1;
+    }
+  }
+  return maxElem;
+}
+// console.log(maxPower("leetcode"));
