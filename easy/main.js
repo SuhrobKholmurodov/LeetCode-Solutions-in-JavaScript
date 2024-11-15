@@ -869,3 +869,22 @@ function getConcatenation(array) {
   return newArray;
 }
 // console.log(getConcatenation([1, 2, 1]));
+
+// 44) Given a 0-indexed string word and a character ch, reverse the segment of word that
+// starts at index 0 and ends at the index of the first occurrence of ch (inclusive). If the character ch does not exist in word,
+// do nothing. For example, if word = "abcdefd" and ch = "d", then you should reverse the segment
+// that starts at 0 and ends at 3 (inclusive). The resulting string will be "dcbaefd". Return the resulting string.
+// Input: word = "abcdefd", ch = "d"
+// Output: "dcbaefd"
+// Explanation: The first occurrence of "d" is at index 3.
+// Reverse the part of word from 0 to 3 (inclusive), the resulting string is "dcbaefd".
+
+function reversePrefix(word, ch) {
+  let index = word.indexOf(ch);
+  if (index === -1) return word;
+  let part1 = word.slice(0, index + 1);
+  let part2 = word.slice(index + 1);
+  let reversedPart1 = part1.split("").reverse().join("");
+  return reversedPart1 + part2;
+}
+// console.log(reversePrefix("abcdefd", "d"));
