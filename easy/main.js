@@ -749,9 +749,38 @@ function thousandSeparator(num) {
     cnt++;
     if (cnt === 3 && i !== 0) {
       res.push(".");
-      cnt = 0; 
+      cnt = 0;
     }
   }
   return res.reverse().join("");
 }
-// console.log(thousandSeparator(1234)); 
+// console.log(thousandSeparator(1234));
+
+// 39) You are given a string s of even length. Split this string into two halves of equal lengths,
+// and let a be the first half and b be the second half.
+// Two strings are alike if they have the same number of vowels ('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U').
+// Notice that s contains uppercase and lowercase letters. Return true if a and b are alike. Otherwise, return false.
+// Input: s = "book"
+// Output: true
+// Explanation: a = "bo" and b = "ok". a has 1 vowel and b has 1 vowel. Therefore, they are alike.
+
+function halvesAreAlike(str) {
+  let devide = str.substring(str.length / 2);
+  let left = str.substring(0, str.length / 2);
+  let cnt1 = 0;
+  let cnt2 = 0;
+  const vowels = "aeiouAEIOU";
+  for (let i = 0; i < left.length; i++) {
+    if (vowels.includes(left[i])) {
+      cnt1++;
+    }
+  }
+  for (let i = 0; i < devide.length; i++) {
+    if (vowels.includes(devide[i])) {
+      cnt2++;
+    }
+  }
+
+  return cnt1 === cnt2;
+}
+// console.log(halvesAreAlike("textbook"));
