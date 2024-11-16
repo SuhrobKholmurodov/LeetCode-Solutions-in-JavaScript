@@ -1015,7 +1015,7 @@ function capitalizeTitle(str) {
 // consists of the next k characters of the string, and so on. Each character can be a part of exactly one group.
 // For the last group, if the string does not have k characters remaining, a character fill is used to complete the group.
 // Note that the partition is done so that after removing the fill character from the last group (if it exists)
-//  and concatenating all the groups in order, the resultant string should be s.
+// and concatenating all the groups in order, the resultant string should be s.
 // Given the string s, the size of each group k and the character fill, return a string array denoting the
 // composition of every group s has been divided into, using the above procedure.
 // Input: s = "abcdefghi", k = 3, fill = "x"
@@ -1041,3 +1041,24 @@ function divideString(str, k, fill) {
   return res;
 }
 // console.log(divideString("abcdefghi", 3, "x"));
+
+// 51) Given an integer array nums, return the number of elements that have both a strictly
+// smaller and a strictly greater element appear in nums.
+// Input: nums = [11,7,2,15]
+// Output: 2
+// Explanation: The element 7 has the element 2 strictly smaller than it and the element 11 strictly greater than it.
+// Element 11 has element 7 strictly smaller than it and element 15 strictly greater than it.
+// In total there are 2 elements having both a strictly smaller and a strictly greater element appear in nums.
+
+function countElements(array) {
+  let cnt = 0;
+  let maxElem = Math.max(...array);
+  let minElem = Math.min(...array);
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] < maxElem && array[i] > minElem) {
+      cnt++;
+    }
+  }
+  return cnt;
+}
+// console.log(countElements([11, 7, 2, 15]));
