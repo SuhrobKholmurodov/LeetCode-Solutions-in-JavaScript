@@ -960,3 +960,26 @@ function isSameAfterReversals(num) {
   return reversed2 === num;
 }
 // console.log(isSameAfterReversals(526));
+
+// 48) Given a string s consisting of only the characters 'a' and 'b', return true if every 'a'
+// appears before every 'b' in the string. Otherwise, return false.
+// Input: s = "aaabbb"
+// Output: true
+// Explanation:
+// The 'a's are at indices 0, 1, and 2, while the 'b's are at indices 3, 4, and 5.
+// Hence, every 'a' appears before every 'b' and we return true.
+
+function checkString(str) {
+  let strSplit = str.split("");
+  let firstB = strSplit.indexOf("b");
+  if (firstB == -1) {
+    return true;
+  }
+  for (let i = firstB; i < strSplit.length; i++) {
+    if (strSplit[i] === "a") {
+      return false;
+    }
+  }
+  return true;
+}
+// console.log(checkString("abab"));
