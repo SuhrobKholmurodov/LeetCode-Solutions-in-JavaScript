@@ -1179,7 +1179,7 @@ function digitSum(str, k) {
 // console.log(digitSum("11111222223", 3));
 
 // 57) You are given a string array words and a string s, where words[i] and s comprise only of lowercase English letters.
-// Return the number of strings in words that are a prefix of s. A prefix of a string is a substring 
+// Return the number of strings in words that are a prefix of s. A prefix of a string is a substring
 // that occurs at the beginning of the string. A substring is a contiguous sequence of characters within a string.
 // Input: words = ["a","b","c","ab","bc","abc"], s = "abc"
 // Output: 3
@@ -1198,3 +1198,22 @@ function countPrefixes(array, str) {
   return cnt;
 }
 // console.log(countPrefixes(["a", "b", "c", "ab", "bc", "abc"], "abc"));
+
+// 58) Given a string s and a character letter, return the percentage of characters in s that 
+// equal letter rounded down to the nearest whole percent.
+// Input: s = "foobar", letter = "o"
+// Output: 33
+// Explanation:
+// The percentage of characters in s that equal the letter 'o' is 2 / 6 * 100% = 33% when rounded down, so we return 33.
+
+function percentageLetter(str, letter) {
+  let cnt = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === letter) {
+      cnt++;
+    }
+  }
+  let rounded = (cnt / str.length) * 100;
+  return Math.floor(rounded);
+}
+// console.log(percentageLetter("foobar", "o"));
