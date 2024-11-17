@@ -1086,3 +1086,21 @@ function countEven(num) {
   return cnt;
 }
 // console.log(countEven(30));
+
+// 53) You are given an array of strings words and a string pref.
+// Return the number of strings in words that contain pref as a prefix.
+// A prefix of a string s is any leading contiguous substring of s.
+// Input: words = ["pay","attention","practice","attend"], pref = "at"
+// Output: 2
+// Explanation: The 2 strings that contain "at" as a prefix are: "attention" and "attend".
+
+function prefixCount(array, pref) {
+  let res = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].slice(0, pref.length) == pref) {
+      res.push(array[i]);
+    }
+  }
+  return res.length;
+}
+// console.log(prefixCount(["pay", "attention", "practice", "attend"], "at"));
