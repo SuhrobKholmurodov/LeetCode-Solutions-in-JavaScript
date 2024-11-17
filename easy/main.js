@@ -1062,3 +1062,27 @@ function countElements(array) {
   return cnt;
 }
 // console.log(countElements([11, 7, 2, 15]));
+
+// 52) Given a positive integer num, return the number of positive integers less than or equal to num whose digit sums are even.
+// The digit sum of a positive integer is the sum of all its digits.
+// Input: num = 4
+// Output: 2
+// Explanation:
+// The only integers less than or equal to 4 whose digit sums are even are 2 and 4.
+
+function countEven(num) {
+  let cnt = 0;
+  for (let i = 1; i <= num; i++) {
+    let digitSum = 0;
+    let curNum = i;
+    while (curNum > 0) {
+      digitSum += curNum % 10;
+      curNum = Math.floor(curNum / 10);
+    }
+    if (digitSum % 2 === 0) {
+      cnt++;
+    }
+  }
+  return cnt;
+}
+// console.log(countEven(30));
