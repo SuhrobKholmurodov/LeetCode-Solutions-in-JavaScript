@@ -1366,3 +1366,24 @@ function findMaxK(array) {
   return Math.max(...res);
 }
 // console.log(findMaxK([-1, 2, -3, 3]));
+
+// 65) Given an integer array nums of positive integers, return the average value of all even integers that are divisible by 3.
+// Note that the average of n elements is the sum of the n elements divided by n and rounded down to the nearest integer.
+// Input: nums = [1,3,6,10,12,15]
+// Output: 9
+// Explanation: 6 and 12 are even numbers that are divisible by 3. (6 + 12) / 2 = 9.
+
+function averageValue(array) {
+  let res = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 === 0 && array[i] % 3 === 0) {
+      res.push(array[i]);
+    }
+  }
+  if (res.length > 0) {
+    let sum = res.reduce((a, b) => a + b, 0);
+    return Math.floor(sum / res.length);
+  }
+  return 0;
+}
+// console.log(averageValue([1, 3, 6, 10, 12, 15]));
