@@ -1498,7 +1498,7 @@ function countDigits(num) {
 // console.log(countDigits(1248));
 
 // 71) Given an array nums sorted in non-decreasing order, return the maximum between the number
-// of positive integers and the number of negative integers. In other words, if the number of positive 
+// of positive integers and the number of negative integers. In other words, if the number of positive
 // integers in nums is pos and the number of negative integers is neg, then return the maximum of pos and neg.
 // Note that 0 is neither positive nor negative.
 // Input: nums = [-2,-1,-1,1,2,3]
@@ -1515,3 +1515,26 @@ function maximumCount(array) {
   return Math.max(positiveCnt, negativeCnt);
 }
 // console.log(maximumCount([-2, -1, -1, 1, 2, 3]));
+
+// 72) You are given a positive integer array nums.
+// The element sum is the sum of all the elements in nums.
+// The digit sum is the sum of all the digits (not necessarily distinct) that appear in nums.
+// Return the absolute difference between the element sum and digit sum of nums.
+// Note that the absolute difference between two integers x and y is defined as |x - y|.
+// Input: nums = [1,15,6,3]
+// Output: 9
+// Explanation:
+// The element sum of nums is 1 + 15 + 6 + 3 = 25.
+// The digit sum of nums is 1 + 1 + 5 + 6 + 3 = 16.
+// The absolute difference between the element sum and digit sum is |25 - 16| = 9.
+
+function differenceOfSum(nums) {
+  let elementSum = nums.reduce((a, b) => a + b, 0);
+  let digitSum = nums
+    .join("")
+    .split("")
+    .map(Number)
+    .reduce((a, b) => a + b, 0);
+  return Math.abs(elementSum - digitSum);
+}
+console.log(differenceOfSum([1, 15, 6, 3]));
