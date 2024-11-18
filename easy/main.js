@@ -1324,3 +1324,21 @@ function smallestEvenMultiple(num) {
   return num % 2 === 0 ? num : num * 2;
 }
 // console.log(smallestEvenMultiple(6));
+
+// 63) You are given an array of strings names, and an array heights that consists of
+// distinct positive integers. Both arrays are of length n.
+// For each index i, names[i] and heights[i] denote the name and height of the ith person.
+// Return names sorted in descending order by the people's heights.
+// Input: names = ["Mary","John","Emma"], heights = [180,165,170]
+// Output: ["Mary","Emma","John"]
+// Explanation: Mary is the tallest, followed by Emma and John.
+
+function sortPeople(names, heights) {
+  const people = names.map((name, i) => ({
+    name: name,
+    height: heights[i],
+  }));
+  people.sort((a, b) => b.height - a.height);
+  return people.map((person) => person.name);
+}
+// console.log(sortPeople(["Mary", "John", "Emma"], [180, 165, 170]));
