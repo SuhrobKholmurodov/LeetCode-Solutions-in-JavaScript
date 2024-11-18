@@ -1285,3 +1285,32 @@ function repeatedCharacter(str) {
   return -1;
 }
 // console.log(repeatedCharacter("abccbaacz"));
+
+// 61) Given an integer array nums, return the most frequent even element.
+// If there is a tie, return the smallest one. If there is no such element, return -1.
+// Input: nums = [0,1,2,2,4,4,1]
+// Output: 2
+// Explanation:
+// The even elements are 0, 2, and 4. Of these, 2 and 4 appear the most.
+// We return the smallest one, which is 2.
+
+function mostFrequentEven(nums) {
+  let maxCount = 0;
+  let result = -1;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] % 2 === 0) {
+      let cnt = 0;
+      for (let j = 0; j < nums.length; j++) {
+        if (nums[i] === nums[j]) {
+          cnt++;
+        }
+      }
+      if (cnt > maxCount || (cnt === maxCount && nums[i] < result)) {
+        maxCount = cnt;
+        result = nums[i];
+      }
+    }
+  }
+  return result;
+}
+// console.log(mostFrequentEven([0, 1, 2, 2, 4, 4, 1]));
