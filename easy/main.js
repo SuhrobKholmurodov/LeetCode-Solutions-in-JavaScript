@@ -1199,7 +1199,7 @@ function countPrefixes(array, str) {
 }
 // console.log(countPrefixes(["a", "b", "c", "ab", "bc", "abc"], "abc"));
 
-// 58) Given a string s and a character letter, return the percentage of characters in s that 
+// 58) Given a string s and a character letter, return the percentage of characters in s that
 // equal letter rounded down to the nearest whole percent.
 // Input: s = "foobar", letter = "o"
 // Output: 33
@@ -1217,3 +1217,46 @@ function percentageLetter(str, letter) {
   return Math.floor(rounded);
 }
 // console.log(percentageLetter("foobar", "o"));
+
+// 59) A password is said to be strong if it satisfies all the following criteria:
+// It has at least 8 characters.
+// It contains at least one lowercase letter.
+// It contains at least one uppercase letter.
+// It contains at least one digit.
+// It contains at least one special character. The special characters are the characters in the following string: "!@#$%^&*()-+".
+// It does not contain 2 of the same character in adjacent positions (i.e., "aab" violates this condition, but "aba" does not).
+// Given a string password, return true if it is a strong password. Otherwise, return false.
+// Input: password = "IloveLe3tcode!"
+// Output: true
+// Explanation: The password meets all the requirements. Therefore, we return true.
+
+function strongPasswordCheckerII(str) {
+  if (str.length < 8) {
+    return false;
+  }
+  let hasLowercase = false;
+  let hasUppercase = false;
+  let hasDigit = false;
+  let hasSpecialChar = false;
+  const specialChars = "!@#$%^&*()-+";
+  for (let i = 0; i < str.length; i++) {
+    const currElem = str[i];
+    if (currElem >= "a" && currElem <= "z") {
+      hasLowercase = true;
+    }
+    if (currElem >= "A" && currElem <= "Z") {
+      hasUppercase = true;
+    }
+    if (currElem >= "0" && currElem <= "9") {
+      hasDigit = true;
+    }
+    if (specialChars.includes(currElem)) {
+      hasSpecialChar = true;
+    }
+    if (i > 0 && currElem === str[i - 1]) {
+      return false;
+    }
+  }
+  return hasLowercase && hasUppercase && hasDigit && hasSpecialChar;
+}
+// console.log(strongPasswordCheckerII("IloveLe3tcode!"));
