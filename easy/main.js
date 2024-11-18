@@ -1582,3 +1582,4 @@ function alternateDigitSum(num) {
   return sum;
 }
 // console.log(alternateDigitSum(521));
+
