@@ -1476,3 +1476,23 @@ function maximumValue(str) {
   return max;
 }
 // console.log(maximumValue(["alic3", "bob", "3", "4", "00000"]));
+
+// 70) Given an integer num, return the number of digits in num that divide num.
+// An integer val divides nums if nums % val == 0.
+// Input: num = 1248
+// Output: 4
+// Explanation: 1248 is divisible by all of its digits, hence the answer is 4.
+
+function countDigits(num) {
+  let cnt = 0;
+  let originalNum = num;
+  while (num > 0) {
+    let digit = num % 10;
+    if (digit !== 0 && originalNum % digit === 0) {
+      cnt++;
+    }
+    num = Math.floor(num / 10);
+  }
+  return cnt;
+}
+// console.log(countDigits(1248));
