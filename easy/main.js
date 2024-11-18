@@ -1537,4 +1537,26 @@ function differenceOfSum(nums) {
     .reduce((a, b) => a + b, 0);
   return Math.abs(elementSum - digitSum);
 }
-console.log(differenceOfSum([1, 15, 6, 3]));
+// console.log(differenceOfSum([1, 15, 6, 3]));
+
+// 73) Given two integer arrays nums1 and nums2, sorted in non-decreasing order,
+// return the minimum integer common to both arrays. If there is no common integer amongst nums1 and nums2, return -1.
+// Note that an integer is said to be common to nums1 and nums2 if both arrays have at least one occurrence of that integer.
+// Input: nums1 = [1,2,3], nums2 = [2,4]
+// Output: 2
+// Explanation: The smallest element common to both arrays is 2, so we return 2.
+
+function getCommon(array1, array2) {
+  let res = [];
+  let obj = {};
+  for (let i = 0; i < array2.length; i++) {
+    obj[array2[i]] = true;
+  }
+  for (let i = 0; i < array1.length; i++) {
+    if (obj[array1[i]]) {
+      res.push(array1[i]);
+    }
+  }
+  return res.length > 0 ? Math.min(...res) : -1;
+}
+// console.log(getCommon([1, 2, 3], [2, 4]));
