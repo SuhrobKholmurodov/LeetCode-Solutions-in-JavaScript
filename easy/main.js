@@ -1388,9 +1388,9 @@ function averageValue(array) {
 }
 // console.log(averageValue([1, 3, 6, 10, 12, 15]));
 
-// 66) You are given a non-negative floating point number rounded to two decimal places celsius, 
-// that denotes the temperature in Celsius. You should convert Celsius into Kelvin and Fahrenheit 
-// and return it as an array ans = [kelvin, fahrenheit]. Return the array ans. Answers within 
+// 66) You are given a non-negative floating point number rounded to two decimal places celsius,
+// that denotes the temperature in Celsius. You should convert Celsius into Kelvin and Fahrenheit
+// and return it as an array ans = [kelvin, fahrenheit]. Return the array ans. Answers within
 // 10-5 of the actual answer will be accepted.
 // Kelvin = Celsius + 273.15;
 // Fahrenheit = Celsius * 1.8 + 32.0;
@@ -1401,6 +1401,21 @@ function averageValue(array) {
 function convertTemperature(celsius) {
   const kelvin = celsius + 273.15;
   const fahrenheit = celsius * 1.8 + 32.0;
-  return [kelvin, fahrenheit]; 
+  return [kelvin, fahrenheit];
 }
-// console.log(convertTemperature(36.5)); 
+// console.log(convertTemperature(36.5));
+
+// 67) A valid cut in a circle can be:
+// A cut that is represented by a straight line that touches two points on the edge of the circle and passes through its center, or
+// A cut that is represented by a straight line that touches one point on the edge of the circle and its center.
+// Some valid and invalid cuts are shown in the figures below.
+// Given the integer n, return the minimum number of cuts needed to divide a circle into n equal slices.
+// Input: n = 4
+// Output: 2
+// Explanation: 
+// The above figure shows how cutting the circle twice through the middle divides it into 4 equal slices.
+
+function numberOfCuts(num) {
+  return num === 1 ? 0 : num % 2 === 0 ? num / 2 : num;
+}
+// console.log(numberOfCuts(3));
