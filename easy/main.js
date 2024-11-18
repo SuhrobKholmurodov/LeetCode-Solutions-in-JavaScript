@@ -1604,3 +1604,4 @@ function separateDigits(array) {
   return res.split("").map(Number);
 }
 // console.log(separateDigits([13, 25, 83, 77]));
+
