@@ -1498,7 +1498,7 @@ function countDigits(num) {
 // console.log(countDigits(1248));
 
 // 71) Given an array nums sorted in non-decreasing order, return the maximum between the number
-// of positive integers and the number of negative integers. In other words, if the number of positive 
+// of positive integers and the number of negative integers. In other words, if the number of positive
 // integers in nums is pos and the number of negative integers is neg, then return the maximum of pos and neg.
 // Note that 0 is neither positive nor negative.
 // Input: nums = [-2,-1,-1,1,2,3]
@@ -1515,3 +1515,92 @@ function maximumCount(array) {
   return Math.max(positiveCnt, negativeCnt);
 }
 // console.log(maximumCount([-2, -1, -1, 1, 2, 3]));
+
+// 72) You are given a positive integer array nums.
+// The element sum is the sum of all the elements in nums.
+// The digit sum is the sum of all the digits (not necessarily distinct) that appear in nums.
+// Return the absolute difference between the element sum and digit sum of nums.
+// Note that the absolute difference between two integers x and y is defined as |x - y|.
+// Input: nums = [1,15,6,3]
+// Output: 9
+// Explanation:
+// The element sum of nums is 1 + 15 + 6 + 3 = 25.
+// The digit sum of nums is 1 + 1 + 5 + 6 + 3 = 16.
+// The absolute difference between the element sum and digit sum is |25 - 16| = 9.
+
+function differenceOfSum(nums) {
+  let elementSum = nums.reduce((a, b) => a + b, 0);
+  let digitSum = nums
+    .join("")
+    .split("")
+    .map(Number)
+    .reduce((a, b) => a + b, 0);
+  return Math.abs(elementSum - digitSum);
+}
+// console.log(differenceOfSum([1, 15, 6, 3]));
+
+// 73) Given two integer arrays nums1 and nums2, sorted in non-decreasing order,
+// return the minimum integer common to both arrays. If there is no common integer amongst nums1 and nums2, return -1.
+// Note that an integer is said to be common to nums1 and nums2 if both arrays have at least one occurrence of that integer.
+// Input: nums1 = [1,2,3], nums2 = [2,4]
+// Output: 2
+// Explanation: The smallest element common to both arrays is 2, so we return 2.
+
+function getCommon(array1, array2) {
+  let res = [];
+  let obj = {};
+  for (let i = 0; i < array2.length; i++) {
+    obj[array2[i]] = true;
+  }
+  for (let i = 0; i < array1.length; i++) {
+    if (obj[array1[i]]) {
+      res.push(array1[i]);
+    }
+  }
+  return res.length > 0 ? Math.min(...res) : -1;
+}
+// console.log(getCommon([1, 2, 3], [2, 4]));
+
+// 74) You are given a positive integer n. Each digit of n has a sign according to the following rules:
+// The most significant digit is assigned a positive sign.
+// Each other digit has an opposite sign to its adjacent digits.
+// Return the sum of all digits with their corresponding sign.
+// Input: n = 521
+// Output: 4
+// Explanation: (+5) + (-2) + (+1) = 4.
+
+function alternateDigitSum(num) {
+  let sum = 0;
+  let numSplit = num.toString().split("");
+  for (let i = 0; i < numSplit.length; i++) {
+    if (i % 2 == 0) {
+      sum += numSplit[i] * 1;
+    } else {
+      sum -= numSplit[i] * 1;
+    }
+  }
+  return sum;
+}
+// console.log(alternateDigitSum(521));
+
+// 75) Given an array of positive integers nums, return an array answer that consists of
+// the digits of each integer in nums after separating them in the same order they appear in nums.
+// To separate the digits of an integer is to get all the digits it has in the same order.
+// For example, for the integer 10921, the separation of its digits is [1,0,9,2,1]
+// Input: nums = [13,25,83,77]
+// Output: [1,3,2,5,8,3,7,7]
+// Explanation: 
+// - The separation of 13 is [1,3].
+// - The separation of 25 is [2,5].
+// - The separation of 83 is [8,3].
+// - The separation of 77 is [7,7].
+// answer = [1,3,2,5,8,3,7,7]. Note that answer contains the separations in the same order.
+
+function separateDigits(array) {
+  let res = "";
+  for (let i = 0; i < array.length; i++) {
+    res += array[i];
+  }
+  return res.split("").map(Number);
+}
+// console.log(separateDigits([13, 25, 83, 77]));
