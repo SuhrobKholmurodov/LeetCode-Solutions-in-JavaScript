@@ -1342,3 +1342,27 @@ function sortPeople(names, heights) {
   return people.map((person) => person.name);
 }
 // console.log(sortPeople(["Mary", "John", "Emma"], [180, 165, 170]));
+
+// 64) Given an integer array nums that does not contain any zeros, find the largest
+// positive integer k such that -k also exists in the array.
+// Return the positive integer k. If there is no such integer, return -1.
+// Input: nums = [-1,2,-3,3]
+// Output: 3
+// Explanation: 3 is the only valid k we can find in the array.
+
+function findMaxK(array) {
+  let res = [];
+  let sortedArray = array.sort((a, b) => b - a);
+  for (let i = 0; i < sortedArray.length; i++) {
+    for (let j = i + 1; j < sortedArray.length; j++) {
+      if (sortedArray[i] === sortedArray[j] * -1) {
+        res.push(sortedArray[i]);
+      }
+    }
+  }
+  if (res.length === 0) {
+    return -1;
+  }
+  return Math.max(...res);
+}
+// console.log(findMaxK([-1, 2, -3, 3]));
