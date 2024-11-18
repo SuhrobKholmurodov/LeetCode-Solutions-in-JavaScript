@@ -1560,3 +1560,25 @@ function getCommon(array1, array2) {
   return res.length > 0 ? Math.min(...res) : -1;
 }
 // console.log(getCommon([1, 2, 3], [2, 4]));
+
+// 74) You are given a positive integer n. Each digit of n has a sign according to the following rules:
+// The most significant digit is assigned a positive sign.
+// Each other digit has an opposite sign to its adjacent digits.
+// Return the sum of all digits with their corresponding sign.
+// Input: n = 521
+// Output: 4
+// Explanation: (+5) + (-2) + (+1) = 4.
+
+function alternateDigitSum(num) {
+  let sum = 0;
+  let numSplit = num.toString().split("");
+  for (let i = 0; i < numSplit.length; i++) {
+    if (i % 2 == 0) {
+      sum += numSplit[i] * 1;
+    } else {
+      sum -= numSplit[i] * 1;
+    }
+  }
+  return sum;
+}
+// console.log(alternateDigitSum(521));
