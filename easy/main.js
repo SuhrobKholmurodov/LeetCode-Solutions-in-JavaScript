@@ -1260,3 +1260,28 @@ function strongPasswordCheckerII(str) {
   return hasLowercase && hasUppercase && hasDigit && hasSpecialChar;
 }
 // console.log(strongPasswordCheckerII("IloveLe3tcode!"));
+
+// 60) Given a string s consisting of lowercase English letters, return the first letter to appear twice.
+// Note:
+// A letter a appears twice before another letter b if the second occurrence of a is before the second occurrence of b.
+// s will contain at least one letter that appears twice.
+// Input: s = "abccbaacz"
+// Output: "c"
+// Explanation:
+// The letter 'a' appears on the indexes 0, 5 and 6.
+// The letter 'b' appears on the indexes 1 and 4.
+// The letter 'c' appears on the indexes 2, 3 and 7.
+// The letter 'z' appears on the index 8.
+// The letter 'c' is the first letter to appear twice, because out of all the letters the index of its second occurrence is the smallest.
+
+function repeatedCharacter(str) {
+  let obj = {};
+  for (let i = 0; i < str.length; i++) {
+    if (obj[str[i]]) {
+      return str[i];
+    }
+    obj[str[i]] = true;
+  }
+  return -1;
+}
+// console.log(repeatedCharacter("abccbaacz"));
