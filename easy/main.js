@@ -1412,10 +1412,44 @@ function convertTemperature(celsius) {
 // Given the integer n, return the minimum number of cuts needed to divide a circle into n equal slices.
 // Input: n = 4
 // Output: 2
-// Explanation: 
+// Explanation:
 // The above figure shows how cutting the circle twice through the middle divides it into 4 equal slices.
 
 function numberOfCuts(num) {
   return num === 1 ? 0 : num % 2 === 0 ? num / 2 : num;
 }
 // console.log(numberOfCuts(3));
+
+// 68) A sentence is a list of words that are separated by a single space with no leading or trailing spaces.
+// For example, "Hello World", "HELLO", "hello world hello world" are all sentences.
+// Words consist of only uppercase and lowercase English letters. Uppercase and lowercase English letters are considered different.
+// A sentence is circular if:
+// The last character of a word is equal to the first character of the next word.
+// The last character of the last word is equal to the first character of the first word.
+// For example, "leetcode exercises sound delightful", "eetcode", "leetcode eats soul" are all circular sentences. However, "Leetcode is cool", "happy Leetcode", "Leetcode" and "I like Leetcode" are not circular sentences.
+// Given a string sentence, return true if it is circular. Otherwise, return false.
+// Input: sentence = "leetcode exercises sound delightful"
+// Output: true
+// Explanation: The words in sentence are ["leetcode", "exercises", "sound", "delightful"].
+// - leetcode's last character is equal to exercises's first character.
+// - exercises's last character is equal to sound's first character.
+// - sound's last character is equal to delightful's first character.
+// - delightful's last character is equal to leetcode's first character.
+// The sentence is circular.
+
+function isCircularSentence(str) {
+  let strSplit = str.split(" ");
+  if (strSplit.length === 1) {
+    return strSplit[0].slice(-1) === strSplit[0].slice(0, 1);
+  }
+  for (let i = 0; i < strSplit.length - 1; i++) {
+    if (strSplit[i].slice(-1) !== strSplit[i + 1].slice(0, 1)) {
+      return false;
+    }
+  }
+  if (strSplit[strSplit.length - 1].slice(-1) !== strSplit[0].slice(0, 1)) {
+    return false;
+  }
+  return true;
+}
+// console.log(isCircularSentence("Leetcode eisc cool"));
