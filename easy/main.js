@@ -1744,3 +1744,24 @@ function countSeniors(array) {
   return cnt;
 }
 // console.log(countSeniors(["7868190130M7522", "5303914400F9211", "9273338290F4010"]));
+
+// 82) You are given an integer array prices representing the prices of various chocolates in a store.
+// You are also given a single integer money, which represents your initial amount of money.
+// You must buy exactly two chocolates in such a way that you still have some non-negative leftover money.
+// You would like to minimize the sum of the prices of the two chocolates you buy.
+// Return the amount of money you will have leftover after buying the two chocolates.
+// If there is no way for you to buy two chocolates without ending up in debt, return money.
+// Note that the leftover must be non-negative.
+// Input: prices = [3,2,3], money = 3
+// Output: 3
+// Explanation: You cannot buy 2 chocolates without going in debt, so we return 3
+
+function buyChoco(array, money) {
+  array.sort((a, b) => a - b);
+  const minSum = array[0] + array[1];
+  if (minSum <= money) {
+    return money - minSum;
+  }
+  return money;
+}
+// console.log(buyChoco([3, 2, 3], 3));
