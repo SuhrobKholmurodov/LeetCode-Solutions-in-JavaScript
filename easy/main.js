@@ -1668,3 +1668,22 @@ function vowelStrings(words, left, right) {
   return cnt;
 }
 // console.log(vowelStrings(["are", "amy", "u"], 0, 2));
+
+// 78) Given two arrays of unique digits nums1 and nums2, return the smallest number that contains at least one digit from each array.
+// Input: nums1 = [4,1,3], nums2 = [5,7]
+// Output: 15
+// Explanation: The number 15 contains the digit 1 from nums1 and the digit 5 from nums2.
+// It can be proven that 15 is the smallest number we can have.
+function minNumber(array1, array2) {
+  let commonDig = array1.filter((el) => array2.includes(el));
+  if (commonDig.length > 0) {
+    return Math.min(...commonDig);
+  }
+  let minFromArray1 = Math.min(...array1);
+  let minFromArray2 = Math.min(...array2);
+  return Math.min(
+    minFromArray1 * 10 + minFromArray2,
+    minFromArray2 * 10 + minFromArray1
+  );
+}
+// console.log(minNumber([4, 1, 3], [5, 7]));
