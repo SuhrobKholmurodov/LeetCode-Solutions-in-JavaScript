@@ -1822,14 +1822,14 @@ function theMaximumAchievableX(num, t) {
 // console.log(theMaximumAchievableX(4, 1));
 
 // 86) You are given an integer array nums. We consider an array good if it is a permutation of an array base[n].
-// base[n] = [1, 2, ..., n - 1, n, n] (in other words, it is an array of length n + 1 which 
+// base[n] = [1, 2, ..., n - 1, n, n] (in other words, it is an array of length n + 1 which
 // contains 1 to n - 1 exactly once, plus two occurrences of n). For example, base[1] = [1, 1] and base[3] = [1, 2, 3, 3].
 // Return true if the given array is good, otherwise return false.
 // Note: A permutation of integers represents an arrangement of these numbers.
 // Input: nums = [2, 1, 3]
 // Output: false
-// Explanation: Since the maximum element of the array is 3, the only candidate n for which this array could be a 
-// permutation of base[n], is n = 3. However, base[3] has four elements but array nums has three. Therefore, 
+// Explanation: Since the maximum element of the array is 3, the only candidate n for which this array could be a
+// permutation of base[n], is n = 3. However, base[3] has four elements but array nums has three. Therefore,
 // it can not be a permutation of base[3] = [1, 2, 3, 3]. So the answer is false.
 
 function isGood(array) {
@@ -1860,3 +1860,28 @@ function isGood(array) {
   return goodArray;
 }
 // console.log(isGood([1, 3, 3, 2]));
+
+// 87) There are n employees in a company, numbered from 0 to n - 1. Each employee i has worked for hours[i] hours in the company.
+// The company requires each employee to work for at least target hours.
+// You are given a 0-indexed array of non-negative integers hours of length n and a non-negative integer target.
+// Return the integer denoting the number of employees who worked at least target hours.
+// Input: hours = [0,1,2,3,4], target = 2
+// Output: 3
+// Explanation: The company wants each employee to work for at least 2 hours.
+// - Employee 0 worked for 0 hours and didn't meet the target.
+// - Employee 1 worked for 1 hours and didn't meet the target.
+// - Employee 2 worked for 2 hours and met the target.
+// - Employee 3 worked for 3 hours and met the target.
+// - Employee 4 worked for 4 hours and met the target.
+// There are 3 employees who met the target.
+
+function numberOfEmployeesWhoMetTarget(hours, target) {
+  let cnt = 0;
+  for (let i = 0; i < hours.length; i++) {
+    if (hours[i] >= target) {
+      cnt++;
+    }
+  }
+  return cnt;
+}
+console.log(numberOfEmployeesWhoMetTarget([0, 1, 2, 3, 4], 2));
