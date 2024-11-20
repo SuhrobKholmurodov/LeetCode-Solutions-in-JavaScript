@@ -2088,8 +2088,8 @@ function countKDifference(array, k) {
 }
 // console.log(countKDifference([1, 2, 2, 1], 1));
 
-// 97) A sentence is a list of tokens separated by a single space with no leading or trailing spaces. 
-// Every token is either a positive number consisting of digits 0-9 with no leading zeros, 
+// 97) A sentence is a list of tokens separated by a single space with no leading or trailing spaces.
+// Every token is either a positive number consisting of digits 0-9 with no leading zeros,
 // or a word consisting of lowercase English letters. For example, "a puppy has 2 eyes 4 legs"
 //  is a sentence with seven tokens: "2" and "4" are numbers and the other tokens such as "puppy" are words.
 // Given a string s representing a sentence, you need to check if all the numbers in s are strictly increasing
@@ -2115,3 +2115,33 @@ function areNumbersAscending(str) {
   return true;
 }
 // console.log(areNumbersAscending("1 box has 3 blue 4 red 6 green and 12 yellow marbles"));
+
+// 98) You are given a positive integer num consisting of exactly four digits.
+// Split num into two new integers new1 and new2 by using the digits found in num.
+// Leading zeros are allowed in new1 and new2, and all the digits found in num must be used.
+// For example, given num = 2932, you have the following digits: two 2's, one 9 and one 3.
+// Some of the possible pairs [new1, new2] are [22, 93], [23, 92], [223, 9] and [2, 329].
+// Return the minimum possible sum of new1 and new2.
+// Input: num = 2932
+// Output: 52
+// Explanation: Some possible pairs [new1, new2] are [29, 23], [223, 9], etc.
+// The minimum sum can be obtained by the pair [29, 23]: 29 + 23 = 52.
+
+function minimumSum(num) {
+  let numSplit = num
+    .toString()
+    .split("")
+    .map(Number)
+    .sort((a, b) => a - b);
+  let num1 = "";
+  let num2 = "";
+  for (let i = 0; i < numSplit.length; i++) {
+    if (i % 2 === 0) {
+      num1 += numSplit[i];
+    } else {
+      num2 += numSplit[i];
+    }
+  }
+  return parseInt(num1) + parseInt(num2);
+}
+// console.log(minimumSum(2932));
