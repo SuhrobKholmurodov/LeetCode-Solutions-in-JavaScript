@@ -1989,3 +1989,32 @@ function maxLengthBetweenEqualCharacters(str) {
   return maxLength;
 }
 // console.log(maxLengthBetweenEqualCharacters("abca"));
+
+// 93) A fancy string is a string where no three consecutive characters are equal.
+// Given a string s, delete the minimum possible number of characters from s to make it fancy.
+// Return the final string after the deletion. It can be shown that the answer will always be unique.
+// Input: s = "leeetcode"
+// Output: "leetcode"
+// Explanation:
+// Remove an 'e' from the first group of 'e's to create "leetcode".
+// No three consecutive characters are equal, so return "leetcode".
+
+function makeFancyString(str) {
+  let cnt = 0;
+  let res = "";
+  let strSplit = str.split("");
+  for (let i = 0; i < strSplit.length; i++) {
+    if (strSplit[i] === strSplit[i + 1]) {
+      cnt++;
+      if (cnt >= 2) {
+        continue;
+      }
+    } else {
+      cnt = 0;
+    }
+    res += strSplit[i];
+  }
+
+  return res;
+}
+console.log(makeFancyString("leeetcode"));
