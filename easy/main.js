@@ -2041,3 +2041,24 @@ function isPrefixString(str, array) {
   return false;
 }
 // console.log(isPrefixString("iloveleetcode", ["i", "love", "leetcode", "apples"]));
+
+// 95) Given an integer array nums, return the greatest common divisor of the smallest number and largest number in nums.
+// The greatest common divisor of two numbers is the largest positive integer that evenly divides both numbers.
+// Input: nums = [7,5,6,8,3]
+// Output: 1
+// Explanation:
+// The smallest number in nums is 3.
+// The largest number in nums is 8.
+// The greatest common divisor of 3 and 8 is 1.
+
+function findGCD(array) {
+  let maxElem = Math.max(...array);
+  let minElem = Math.min(...array);
+  while (minElem !== 0) {
+    const temp = minElem;
+    minElem = maxElem % minElem;
+    maxElem = temp;
+  }
+  return maxElem;
+}
+// console.log(findGCD([7, 5, 6, 8, 3]));
