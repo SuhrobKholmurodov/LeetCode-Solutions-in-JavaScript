@@ -2017,4 +2017,27 @@ function makeFancyString(str) {
 
   return res;
 }
-console.log(makeFancyString("leeetcode"));
+// console.log(makeFancyString("leeetcode"));
+
+// 94)Given a string s and an array of strings words, determine whether s is a prefix string of words.
+// A string s is a prefix string of words if s can be made by concatenating the first k strings in words
+// for some positive k no larger than words.length.
+// Return true if s is a prefix string of words, or false otherwise.
+// Input: s = "iloveleetcode", words = ["i","love","leetcode","apples"]
+// Output: true
+// Explanation:
+// s can be made by concatenating "i", "love", and "leetcode" together.
+function isPrefixString(str, array) {
+  let concat = "";
+  for (let i = 0; i < array.length; i++) {
+    concat += array[i];
+    if (concat === str) {
+      return true;
+    }
+    if (concat.length > str.length) {
+      return false;
+    }
+  }
+  return false;
+}
+// console.log(isPrefixString("iloveleetcode", ["i", "love", "leetcode", "apples"]));
