@@ -1954,7 +1954,7 @@ function runningSum(array) {
 // console.log(runningSum([1, 2, 3, 4]));
 
 // 91) You are given an array of unique integers salary where salary[i] is the salary of the ith employee.
-// Return the average salary of employees excluding the minimum and maximum salary. 
+// Return the average salary of employees excluding the minimum and maximum salary.
 // Answers within 10-5 of the actual answer will be accepted.
 // Input: salary = [4000,3000,1000,2000]
 // Output: 2500.00000
@@ -1969,3 +1969,23 @@ function average(array) {
   return sum / filtered.length;
 }
 // console.log(average([4000, 3000, 1000, 2000]));
+
+// 92) Given a string s, return the length of the longest substring between two equal characters, excluding the two characters.
+// If there is no such substring return -1. A substring is a contiguous sequence of characters within a string.
+// Input: s = "abca"
+// Output: 2
+// Explanation: The optimal substring here is "bc".
+
+function maxLengthBetweenEqualCharacters(str) {
+  let maxLength = -1;
+  for (let i = 0; i < str.length; i++) {
+    for (let j = i + 1; j < str.length; j++) {
+      if (str[i] === str[j]) {
+        const subStr = str.slice(i + 1, j);
+        maxLength = Math.max(maxLength, subStr.length);
+      }
+    }
+  }
+  return maxLength;
+}
+// console.log(maxLengthBetweenEqualCharacters("abca"));
