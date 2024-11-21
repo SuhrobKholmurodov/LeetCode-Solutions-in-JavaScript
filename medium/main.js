@@ -164,3 +164,39 @@ function kthLargestNumber(array, k) {
   return sortedArray[k - 1];
 }
 // console.log(kthLargestNumber(["3", "6", "7", "10"], 4));
+
+// 9) You are given a 0-indexed array nums consisting of positive integers. You can choose two indices i and j,
+// such that i != j, and the sum of digits of the number nums[i] is equal to that of nums[j].
+// Return the maximum value of nums[i] + nums[j] that you can obtain over all possible indices i and j that satisfy the conditions.
+// Input: nums = [18,43,36,13,7]
+// Output: 54
+// Explanation: The pairs (i, j) that satisfy the conditions are:
+// - (0, 2), both numbers have a sum of digits equal to 9, and their sum is 18 + 36 = 54.
+// - (1, 4), both numbers have a sum of digits equal to 7, and their sum is 43 + 7 = 50.
+// So the maximum sum that we can obtain is 54.
+
+function maximumSum(array) {
+  let res = [];
+  let maxSum = -1;
+  for (let i = 0; i < array.length; i++) {
+    res.push(
+      array[i]
+        .toString()
+        .split("")
+        .map(Number)
+        .reduce((a, b) => a + b, 0)
+    );
+  }
+  let digitSumMax = [];
+  for (let i = 0; i < array.length; i++) {
+    let digitSum = res[i];
+    if (digitSumMax[digitSum] === undefined) {
+      digitSumMax[digitSum] = array[i];
+    } else {
+      maxSum = Math.max(maxSum, array[i] + digitSumMax[digitSum]);
+      digitSumMax[digitSum] = Math.max(digitSumMax[digitSum], array[i]);
+    }
+  }
+  return maxSum;
+}
+// console.log(maximumSum([18, 43, 36, 13, 7]));
