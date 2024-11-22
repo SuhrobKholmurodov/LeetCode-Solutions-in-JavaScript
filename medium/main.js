@@ -200,3 +200,24 @@ function maximumSum(array) {
   return maxSum;
 }
 // console.log(maximumSum([18, 43, 36, 13, 7]));
+
+// 10) Given a string s, find the length of the longest substring without repeating characters.
+// Input: s = "abcabcbb"
+// Output: 3
+// Explanation: The answer is "abc", with the length of 3.
+function lengthOfLongestSubstring(str) {
+  let maxLen = 0;
+  for (let i = 0; i < str.length; i++) {
+    let temp = "";
+    for (let j = i; j < str.length; j++) {
+      if (temp.includes(str[j])) {
+        maxLen = Math.max(maxLen, temp.length);
+        break;
+      }
+      temp += str[j];
+    }
+    maxLen = Math.max(maxLen, temp.length);
+  }
+  return maxLen;
+}
+// console.log(lengthOfLongestSubstring("abcabcbb"));
