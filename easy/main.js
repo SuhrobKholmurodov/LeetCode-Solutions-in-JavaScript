@@ -2233,9 +2233,9 @@ function smallestEqual(array) {
 // Input: nums1 = [1,2,3], nums2 = [2,4,6]
 // Output: [[1,3],[4,6]]
 // Explanation:
-// For nums1, nums1[1] = 2 is present at index 0 of nums2, whereas nums1[0] = 1 and nums1[2] = 3 
+// For nums1, nums1[1] = 2 is present at index 0 of nums2, whereas nums1[0] = 1 and nums1[2] = 3
 // are not present in nums2. Therefore, answer[0] = [1,3].
-// For nums2, nums2[0] = 2 is present at index 1 of nums1, whereas nums2[1] = 4 and nums2[2] = 6 
+// For nums2, nums2[0] = 2 is present at index 1 of nums1, whereas nums2[1] = 4 and nums2[2] = 6
 // are not present in nums2. Therefore, answer[1] = [4,6].
 
 function findDifference(nums1, nums2) {
@@ -2254,3 +2254,18 @@ function findDifference(nums1, nums2) {
   return [diff1, diff2];
 }
 // console.log(findDifference([1, 2, 3, 3], [1, 1, 2, 2]));
+
+// 104) Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+// Note that you must do this in-place without making a copy of the array.
+// Input: nums = [0,1,0,3,12]
+// Output: [1,3,12,0,0]
+function moveZeroes(array) {
+  for (let i = array.length - 1; i >= 0; i--) {
+    if (array[i] === 0) {
+      array.push(array[i]);
+      array.splice(i, 1);
+    }
+  }
+  return array;
+}
+// console.log(moveZeroes([0, 1, 0, 3, 12]));
