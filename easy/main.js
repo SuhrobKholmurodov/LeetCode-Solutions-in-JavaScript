@@ -2286,3 +2286,20 @@ function commonFactors(a, b) {
   return factors.length;
 }
 // console.log(commonFactors(12, 6));
+
+// 106) An array is considered special if every pair of its adjacent elements contains two numbers with different parity.
+// You are given an array of integers nums. Return true if nums is a special array, otherwise, return false.
+// Input: nums = [2,1,4]
+// Output: true
+// Explanation:
+// There is only two pairs: (2,1) and (1,4), and both of them contain numbers with different parity. So the answer is true.
+
+function isArraySpecial(array) {
+  for (let i = 0; i < array.length - 1; i++) {
+    if (array[i] % 2 === array[i + 1] % 2) {
+      return false;
+    }
+  }
+  return true;
+}
+// console.log(isArraySpecial([2, 1, 4]));
