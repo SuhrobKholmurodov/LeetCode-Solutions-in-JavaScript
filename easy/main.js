@@ -2189,3 +2189,18 @@ function isLongPressedName(name, typed) {
   return i === name.length;
 }
 // console.log(isLongPressedName("alex", "aaleex"));
+
+// 101) Write a function that reverses a string. The input string is given as an array of characters s.
+// You must do this by modifying the input array in-place with O(1) extra memory.
+// Input: s = ["h","e","l","l","o"]
+// Output: ["o","l","l","e","h"]
+
+function reverseString(array) {
+  const length = array.length;
+  for (let i = length - 1; i >= 0; i--) {
+    array.push(array[i]);
+  }
+  array.splice(0, length);
+  return array;
+}
+// console.log(reverseString(["h", "e", "l", "l", "o"]));
