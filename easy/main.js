@@ -2304,7 +2304,7 @@ function isArraySpecial(array) {
 }
 // console.log(isArraySpecial([2, 1, 4]));
 
-// 107) Given an integer array nums, return true if any value appears at least twice in the array, 
+// 107) Given an integer array nums, return true if any value appears at least twice in the array,
 // and return false if every element is distinct.
 // Input: nums = [1,2,3,1]
 // Output: true
@@ -2321,3 +2321,30 @@ function containsDuplicate(array) {
   return false;
 }
 // console.log(containsDuplicate([1, 2, 3, 1]));
+
+// 108) Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+// Input: s = "III"
+// Output: 3
+// Explanation: III = 3.
+
+function romanToInt(str) {
+  let romanToNum = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+  let res = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (romanToNum[str[i]] < romanToNum[str[i + 1]]) {
+      res -= romanToNum[str[i]];
+    } else {
+      res += romanToNum[str[i]];
+    }
+  }
+  return res;
+}
+// console.log(romanToInt("III"));
