@@ -2303,3 +2303,21 @@ function isArraySpecial(array) {
   return true;
 }
 // console.log(isArraySpecial([2, 1, 4]));
+
+// 107) Given an integer array nums, return true if any value appears at least twice in the array, 
+// and return false if every element is distinct.
+// Input: nums = [1,2,3,1]
+// Output: true
+// Explanation:
+// The element 1 occurs at the indices 0 and 3.
+
+function containsDuplicate(array) {
+  array.sort();
+  for (let i = 0; i < array.length - 1; i++) {
+    if (array[i] === array[i + 1]) {
+      return true;
+    }
+  }
+  return false;
+}
+// console.log(containsDuplicate([1, 2, 3, 1]));
