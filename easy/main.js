@@ -2348,3 +2348,23 @@ function romanToInt(str) {
   return res;
 }
 // console.log(romanToInt("III"));
+
+// 109) A phrase is a palindrome if, after converting all uppercase letters into lowercase 
+// letters and removing all non-alphanumeric characters, it reads the same forward and backward. 
+// Alphanumeric characters include letters and numbers.
+// Given a string s, return true if it is a palindrome, or false otherwise.
+// Input: s = "A man, a plan, a canal: Panama"
+// Output: true
+// Explanation: "amanaplanacanalpanama" is a palindrome.
+
+function isPalindrome(str) {
+  let res = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    let char = str[i].toLowerCase();
+    if ((char >= "a" && char <= "z") || (char >= "0" && char <= "9")) {
+      res += char;
+    }
+  }
+  return res === res.split("").reverse().join("");
+}
+// console.log(isPalindrome("A man, a plan, a canal: Panama"));
