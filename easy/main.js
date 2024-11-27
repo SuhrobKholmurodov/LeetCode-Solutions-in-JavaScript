@@ -2393,3 +2393,23 @@ function mergeAlternately(str1, str2) {
   return res;
 }
 // console.log(mergeAlternately("ab", "pqrs"));
+
+// 111) Given two strings s and t, return true if s is a subsequence of t, or false otherwise.
+// A subsequence of a string is a new string that is formed from the original string by deleting
+//  some (can be none) of the characters without disturbing the relative positions of the remaining characters.
+// (i.e., "ace" is a subsequence of "abcde" while "aec" is not).
+// Input: s = "abc", t = "ahbgdc"
+// Output: true
+
+function isSubsequence(str, s) {
+  let i = 0;
+  let j = 0;
+  while (i < str.length && j < s.length) {
+    if (str[i] === s[j]) {
+      i++;
+    }
+    j++;
+  }
+  return i === str.length;
+}
+// console.log(isSubsequence("abc", "ahbgdc"));
