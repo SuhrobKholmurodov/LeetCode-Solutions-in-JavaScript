@@ -242,3 +242,34 @@ function groupAnagrams(array) {
   return Object.values(res);
 }
 // console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
+
+// 12) Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
+// If target is not found in the array, return [-1, -1].
+// You must write an algorithm with O(log n) runtime complexity.
+// Input: nums = [5,7,7,8,8,10], target = 8
+// Output: [3,4]
+
+function searchRange(array, target) {
+  let left = 0;
+  let right = array.length - 1;
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    if (array[mid] === target) {
+      let leftMatch = mid - 1;
+      while (leftMatch >= 0 && array[leftMatch] === target) {
+        leftMatch--;
+      }
+      let rightMatch = mid + 1;
+      while (rightMatch < array.length && array[rightMatch] === target) {
+        rightMatch++;
+      }
+      return [leftMatch + 1, rightMatch - 1];
+    } else if (array[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+  return [-1, -1];
+}
+// console.log(searchRange([5, 7, 7, 8, 8, 10], 8));
