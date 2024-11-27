@@ -2349,8 +2349,8 @@ function romanToInt(str) {
 }
 // console.log(romanToInt("III"));
 
-// 109) A phrase is a palindrome if, after converting all uppercase letters into lowercase 
-// letters and removing all non-alphanumeric characters, it reads the same forward and backward. 
+// 109) A phrase is a palindrome if, after converting all uppercase letters into lowercase
+// letters and removing all non-alphanumeric characters, it reads the same forward and backward.
 // Alphanumeric characters include letters and numbers.
 // Given a string s, return true if it is a palindrome, or false otherwise.
 // Input: s = "A man, a plan, a canal: Panama"
@@ -2368,3 +2368,28 @@ function isPalindrome(str) {
   return res === res.split("").reverse().join("");
 }
 // console.log(isPalindrome("A man, a plan, a canal: Panama"));
+
+// 110) You are given two strings word1 and word2. Merge the strings by adding letters in alternating order,
+// starting with word1. If a string is longer than the other, append the additional letters onto the end of the merged string.
+// Return the merged string.
+// Input: word1 = "ab", word2 = "pqrs"
+// Output: "apbqrs"
+// Explanation: Notice that as word2 is longer, "rs" is appended to the end.
+// word1:  a   b
+// word2:    p   q   r   s
+// merged: a p b q   r   s
+
+function mergeAlternately(str1, str2) {
+  let res = "";
+  let maxLength = Math.max(str1.length, str2.length);
+  for (let i = 0; i < maxLength; i++) {
+    if (i < str1.length) {
+      res += str1[i];
+    }
+    if (i < str2.length) {
+      res += str2[i];
+    }
+  }
+  return res;
+}
+// console.log(mergeAlternately("ab", "pqrs"));
