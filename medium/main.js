@@ -300,7 +300,7 @@ function findKthLargest(array, k) {
 }
 // console.log(findKthLargest([3, 2, 1, 5, 6, 4], 2))
 
-// 15) Given an integer array nums, return an array answer such that answer[i] is equal to the 
+// 15) Given an integer array nums, return an array answer such that answer[i] is equal to the
 // product of all the elements of nums except nums[i].
 // The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
 // You must write an algorithm that runs in O(n) time and without using the division operation.
@@ -337,3 +337,35 @@ function productExceptSelf(array) {
   return array;
 }
 // console.log(productExceptSelf([1, 2, 3, 4]));
+
+// 16) An ugly number is a positive integer whose prime factors are limited to 2, 3, and 5.
+// Given an integer n, return the nth ugly number.
+// Input: n = 10
+// Output: 12
+// Explanation: [1, 2, 3, 4, 5, 6, 8, 9, 10, 12] is the sequence of the first 10 ugly numbers.
+
+function nthUglyNumber(n) {
+  let uglyNumbers = [1];
+  let byTwo = 0;
+  let byThree = 0;
+  let byFive = 0;
+  while (uglyNumbers.length < n) {
+    let next = Math.min(
+      uglyNumbers[byTwo] * 2,
+      uglyNumbers[byThree] * 3,
+      uglyNumbers[byFive] * 5
+    );
+    uglyNumbers.push(next);
+    if (next === uglyNumbers[byTwo] * 2) {
+      byTwo++;
+    }
+    if (next === uglyNumbers[byThree] * 3) {
+      byThree++;
+    }
+    if (next === uglyNumbers[byFive] * 5) {
+      byFive++;
+    }
+  }
+  return uglyNumbers[n - 1];
+}
+// console.log(nthUglyNumber(1407));
