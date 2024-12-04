@@ -2,20 +2,20 @@
 // Input: x = 2.00000, n = 10
 // Output: 1024.00000
 
-function myPow(x, num) {
-  if (num === 0) return 1;
-  let res = 1;
+function myPow (x, num) {
+  if (num === 0) return 1
+  let res = 1
   if (num < 0) {
-    x = 1 / x;
-    num = -num;
+    x = 1 / x
+    num = -num
   }
   for (let i = num; i > 0; i = Math.floor(i / 2)) {
     if (i % 2 === 1) {
-      res *= x;
+      res *= x
     }
-    x *= x;
+    x *= x
   }
-  return res;
+  return res
 }
 // console.log(myPow(2, 10));
 
@@ -25,20 +25,20 @@ function myPow(x, num) {
 // Input: nums = [2,2,3,2]
 // Output: 3
 
-function singleNumber(array) {
-  let res = {};
+function singleNumber (array) {
+  let res = {}
   for (let i = 0; i < array.length; i++) {
     if (res[array[i]]) {
-      res[array[i]]++;
+      res[array[i]]++
     } else {
-      res[array[i]] = 1;
+      res[array[i]] = 1
     }
   }
   return parseInt(
     Object.keys(res)
-      .filter((key) => res[key] === 1)
+      .filter(key => res[key] === 1)
       .pop()
-  );
+  )
 }
 // console.log(singleNumber([2, 2, 3, 2]));
 
@@ -49,20 +49,20 @@ function singleNumber(array) {
 // Output: 3
 // Explanation: The sorted form of the array is [1,3,6,9], either (3,6) or (6,9) has the maximum difference 3.
 
-function maximumGap(arr) {
+function maximumGap (arr) {
   if (arr.length < 2) {
-    return 0;
+    return 0
   }
   let sortedArr = [...arr].sort((a, b) => {
-    return a - b;
-  });
-  let maxElem = 0;
+    return a - b
+  })
+  let maxElem = 0
   for (let i = 0; i < sortedArr.length - 1; i++) {
     if (sortedArr[i + 1] - sortedArr[i] > maxElem) {
-      maxElem = sortedArr[i + 1] - sortedArr[i];
+      maxElem = sortedArr[i + 1] - sortedArr[i]
     }
   }
-  return maxElem;
+  return maxElem
 }
 // console.log(maximumGap([1, 3, 100]));
 
@@ -73,20 +73,20 @@ function maximumGap(arr) {
 // Output: [3,5]
 // Explanation:  [5, 3] is also a valid answer.
 
-function singleNumber(array) {
-  let res = {};
+function singleNumber (array) {
+  let res = {}
   for (let i = 0; i < array.length; i++) {
     if (res[array[i]]) {
-      res[array[i]]++;
+      res[array[i]]++
     } else {
-      res[array[i]] = 1;
+      res[array[i]] = 1
     }
   }
   return Object.keys(res)
-    .filter((el) => {
-      return res[el] === 1;
+    .filter(el => {
+      return res[el] === 1
     })
-    .map(Number);
+    .map(Number)
 }
 // console.log(singleNumber([1, 2, 1, 3, 2, 5]));
 
@@ -96,15 +96,15 @@ function singleNumber(array) {
 // Input: nums = [1,3,4,2,2]
 // Output: 2
 
-function findDuplicate(array) {
-  let isElem = {};
+function findDuplicate (array) {
+  let isElem = {}
   for (let i = 0; i < array.length; i++) {
     if (isElem[array[i]]) {
-      return array[i];
+      return array[i]
     }
-    isElem[array[i]] = true;
+    isElem[array[i]] = true
   }
-  return -1;
+  return -1
 }
 // console.log(findDuplicate([1, 3, 4, 2, 2]));
 
@@ -112,8 +112,8 @@ function findDuplicate(array) {
 // Input: a = 2, b = 3
 // Output: 5
 
-function getSum(a, b) {
-  return (a += b);
+function getSum (a, b) {
+  return (a += b)
 }
 // console.log(getSum(2, 3));
 
@@ -123,23 +123,23 @@ function getSum(a, b) {
 // Input: x = 123
 // Output: 321
 
-function reverse(num) {
-  let reversedNum = 0;
-  const negNum = num < 0;
-  num = Math.abs(num);
+function reverse (num) {
+  let reversedNum = 0
+  const negNum = num < 0
+  num = Math.abs(num)
 
   while (num !== 0) {
-    const digit = num % 10;
+    const digit = num % 10
 
     if (reversedNum > (2147483647 - digit) / 10) {
-      return 0;
+      return 0
     }
 
-    reversedNum = reversedNum * 10 + digit;
-    num = Math.floor(num / 10);
+    reversedNum = reversedNum * 10 + digit
+    num = Math.floor(num / 10)
   }
 
-  return negNum ? -reversedNum : reversedNum;
+  return negNum ? -reversedNum : reversedNum
 }
 // console.log(reverse(-2147483648));
 
@@ -153,15 +153,15 @@ function reverse(num) {
 // The numbers in nums sorted in non-decreasing order are ["3","6","7","10"].
 // The 4th largest integer in nums is "3".
 
-function kthLargestNumber(array, k) {
+function kthLargestNumber (array, k) {
   let sortedArray = array.sort((a, b) => {
     if (a.length !== b.length) {
-      return b.length - a.length;
+      return b.length - a.length
     }
-    return b > a ? 1 : -1;
-  });
+    return b > a ? 1 : -1
+  })
 
-  return sortedArray[k - 1];
+  return sortedArray[k - 1]
 }
 // console.log(kthLargestNumber(["3", "6", "7", "10"], 4));
 
@@ -175,29 +175,29 @@ function kthLargestNumber(array, k) {
 // - (1, 4), both numbers have a sum of digits equal to 7, and their sum is 43 + 7 = 50.
 // So the maximum sum that we can obtain is 54.
 
-function maximumSum(array) {
-  let res = [];
-  let maxSum = -1;
+function maximumSum (array) {
+  let res = []
+  let maxSum = -1
   for (let i = 0; i < array.length; i++) {
     res.push(
       array[i]
         .toString()
-        .split("")
+        .split('')
         .map(Number)
         .reduce((a, b) => a + b, 0)
-    );
+    )
   }
-  let digitSumMax = [];
+  let digitSumMax = []
   for (let i = 0; i < array.length; i++) {
-    let digitSum = res[i];
+    let digitSum = res[i]
     if (digitSumMax[digitSum] === undefined) {
-      digitSumMax[digitSum] = array[i];
+      digitSumMax[digitSum] = array[i]
     } else {
-      maxSum = Math.max(maxSum, array[i] + digitSumMax[digitSum]);
-      digitSumMax[digitSum] = Math.max(digitSumMax[digitSum], array[i]);
+      maxSum = Math.max(maxSum, array[i] + digitSumMax[digitSum])
+      digitSumMax[digitSum] = Math.max(digitSumMax[digitSum], array[i])
     }
   }
-  return maxSum;
+  return maxSum
 }
 // console.log(maximumSum([18, 43, 36, 13, 7]));
 
@@ -205,20 +205,20 @@ function maximumSum(array) {
 // Input: s = "abcabcbb"
 // Output: 3
 // Explanation: The answer is "abc", with the length of 3.
-function lengthOfLongestSubstring(str) {
-  let maxLen = 0;
+function lengthOfLongestSubstring (str) {
+  let maxLen = 0
   for (let i = 0; i < str.length; i++) {
-    let temp = "";
+    let temp = ''
     for (let j = i; j < str.length; j++) {
       if (temp.includes(str[j])) {
-        maxLen = Math.max(maxLen, temp.length);
-        break;
+        maxLen = Math.max(maxLen, temp.length)
+        break
       }
-      temp += str[j];
+      temp += str[j]
     }
-    maxLen = Math.max(maxLen, temp.length);
+    maxLen = Math.max(maxLen, temp.length)
   }
-  return maxLen;
+  return maxLen
 }
 // console.log(lengthOfLongestSubstring("abcabcbb"));
 
@@ -230,16 +230,16 @@ function lengthOfLongestSubstring(str) {
 // The strings "nat" and "tan" are anagrams as they can be rearranged to form each other.
 // The strings "ate", "eat", and "tea" are anagrams as they can be rearranged to form each other.
 
-function groupAnagrams(array) {
-  let res = {};
+function groupAnagrams (array) {
+  let res = {}
   for (let i = 0; i < array.length; i++) {
-    let key = array[i].toLowerCase().split("").sort().join("");
+    let key = array[i].toLowerCase().split('').sort().join('')
     if (!res[key]) {
-      res[key] = [];
+      res[key] = []
     }
-    res[key].push(array[i]);
+    res[key].push(array[i])
   }
-  return Object.values(res);
+  return Object.values(res)
 }
 // console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
 
@@ -249,28 +249,28 @@ function groupAnagrams(array) {
 // Input: nums = [5,7,7,8,8,10], target = 8
 // Output: [3,4]
 
-function searchRange(array, target) {
-  let left = 0;
-  let right = array.length - 1;
+function searchRange (array, target) {
+  let left = 0
+  let right = array.length - 1
   while (left <= right) {
-    let mid = Math.floor((left + right) / 2);
+    let mid = Math.floor((left + right) / 2)
     if (array[mid] === target) {
-      let leftMatch = mid - 1;
+      let leftMatch = mid - 1
       while (leftMatch >= 0 && array[leftMatch] === target) {
-        leftMatch--;
+        leftMatch--
       }
-      let rightMatch = mid + 1;
+      let rightMatch = mid + 1
       while (rightMatch < array.length && array[rightMatch] === target) {
-        rightMatch++;
+        rightMatch++
       }
-      return [leftMatch + 1, rightMatch - 1];
+      return [leftMatch + 1, rightMatch - 1]
     } else if (array[mid] < target) {
-      left = mid + 1;
+      left = mid + 1
     } else {
-      right = mid - 1;
+      right = mid - 1
     }
   }
-  return [-1, -1];
+  return [-1, -1]
 }
 // console.log(searchRange([5, 7, 7, 8, 8, 10], 8));
 
@@ -283,9 +283,19 @@ function searchRange(array, target) {
 // Output: "example good a"
 // Explanation: You need to reduce multiple spaces between two words to a single space in the reversed string.
 
-function reverseWords(str) {
-  let words = str.split(" ").filter((word) => word !== "");
-  let reversedWords = words.reverse();
-  return reversedWords.join(" ");
+function reverseWords (str) {
+  let words = str.split(' ').filter(word => word !== '')
+  let reversedWords = words.reverse()
+  return reversedWords.join(' ')
 }
 // console.log(reverseWords("a good   example"));
+
+// 14) Given an integer array nums and an integer k, return the kth largest element in the array.
+// Note that it is the kth largest element in the sorted order, not the kth distinct element.
+// Input: nums = [3,2,1,5,6,4], k = 2
+// Output: 5
+
+function findKthLargest(array, k) {
+  return array.sort((a, b) => b - a)[k - 1]
+}
+// console.log(findKthLargest([3, 2, 1, 5, 6, 4], 2))
