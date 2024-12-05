@@ -44,9 +44,7 @@ function sortString(array) {
 function sortDescending(array) {
   for (let i = 1; i < array.length; i++) {
     let key = array[i];
-    console.log("key", key);
     let j = i - 1;
-    console.log("j", j);
     while (j >= 0 && array[j] < key) {
       array[j + 1] = array[j];
       j--;
@@ -56,3 +54,18 @@ function sortDescending(array) {
   return array;
 }
 // console.log(sortDescending([5, 3, 8, 1, 2]));
+
+// 3) Implement a version of Insertion Sort that checks if the array is already sorted before starting the sorting process.
+// If the array is already sorted, the algorithm should immediately return the array without making any changes.
+// Input: [1, 2, 3, 4, 5]
+// Output: [1, 2, 3, 4, 5] (no changes made)
+
+function checkAndSort(array) {
+  for (let i = 0; i < array.length - 1; i++) {
+    if (array[i] > array[i + 1]) {
+      return insertionSort(array);
+    }
+  }
+  return array;
+}
+// console.log(checkAndSort([1, 2, 3, 4, 5]));
