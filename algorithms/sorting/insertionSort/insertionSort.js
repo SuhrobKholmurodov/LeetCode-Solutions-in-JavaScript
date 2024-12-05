@@ -69,3 +69,22 @@ function checkAndSort(array) {
   return array;
 }
 // console.log(checkAndSort([1, 2, 3, 4, 5]));
+
+// 4) Sort an Array of Strings by Length
+// Sort an array of strings based on their lengths using Insertion Sort. The shorter strings should come first.
+// Input: ["banana", "apple", "kiwi", "cherry", "grape"]
+// Output: ["kiwi", "apple", "grape", "banana", "cherry"]
+
+function sortByStringLength(array) {
+  for (let i = 1; i < array.length; i++) {
+    let key = array[i];
+    let j = i - 1;
+    while (j >= 0 && array[j].length > key.length) {
+      array[j + 1] = array[j];
+      j--;
+    }
+    array[j + 1] = key;
+  }
+  return array;
+}
+// console.log(sortByStringLength(["banana", "apple", "kiwi", "cherry", "grape"]));
