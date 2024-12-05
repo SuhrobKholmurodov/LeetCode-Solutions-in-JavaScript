@@ -88,3 +88,41 @@ function sortByStringLength(array) {
   return array;
 }
 // console.log(sortByStringLength(["banana", "apple", "kiwi", "cherry", "grape"]));
+
+// 5) Sort an Array of Objects by a Specific Property
+// You have an array of objects, each containing information about a person (e.g., name, age).
+// Implement Insertion Sort to sort the array based on a specific property, such as the person's age
+// Input: const people = [
+//   { name: "John", age: 25 },
+//   { name: "Anna", age: 22 },
+//   { name: "Zoe", age: 30 },
+//   { name: "Mike", age: 28 },
+// ];
+// Output: [
+//   { name: "Anna", age: 22 },
+//   { name: "John", age: 25 },
+//   { name: "Mike", age: 28 },
+//   { name: "Zoe", age: 30 }
+// ]
+//
+
+function sortByAge(array) {
+  for (let i = 1; i < array.length; i++) {
+    let key = array[i];
+    let j = i - 1;
+    while (j >= 0 && array[j].age > key.age) {
+      array[j + 1] = array[j];
+      j--;
+    }
+    array[j + 1] = key;
+  }
+  return array;
+}
+console.log(
+  sortByAge([
+    { name: "John", age: 25 },
+    { name: "Anna", age: 22 },
+    { name: "Zoe", age: 30 },
+    { name: "Mike", age: 28 },
+  ])
+);
