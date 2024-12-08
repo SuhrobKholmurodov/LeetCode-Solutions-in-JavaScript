@@ -462,3 +462,19 @@ function findPairs(nums, k) {
   return cnt;
 }
 // console.log(findPairs([3, 1, 4, 1, 5], 2));
+
+// 21) You are given a sorted array consisting of only integers where every element appears
+// exactly twice, except for one element which appears exactly once.
+// Return the single element that appears only once.
+// Your solution must run in O(log n) time and O(1) space.
+// Input: nums = [1,1,2,3,3,4,4,8,8]
+// Output: 2
+
+function singleNonDuplicate(array) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] !== array[i + 1] && array[i] !== array[i - 1]) {
+      return array[i];
+    }
+  }
+}
+// console.log(singleNonDuplicate([1, 1, 2, 3, 3, 4, 4, 8, 8]));
