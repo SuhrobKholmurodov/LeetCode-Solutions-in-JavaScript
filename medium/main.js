@@ -501,3 +501,37 @@ function judgeSquareSum(n) {
   return false;
 }
 // console.log(judgeSquareSum(5));
+
+// 23) Given two integers a and b, return any string s such that:
+// s has length a + b and contains exactly a 'a' letters, and exactly b 'b' letters,
+// The substring 'aaa' does not occur in s, and
+// The substring 'bbb' does not occur in s.
+// Input: a = 1, b = 2
+// Output: "abb"
+// Explanation: "abb", "bab" and "bba" are all correct answers.
+
+function strWithout3a3b(a, b) {
+  let result = [];
+  let length = a + b;
+  for (let i = 0; i < length; i++) {
+    if (b >= a) {
+      if (b > 0 && result.slice(-2).join("") !== "bb") {
+        result.push("b");
+        b--;
+      } else if (a > 0) {
+        result.push("a");
+        a--;
+      }
+    } else {
+      if (a > 0 && result.slice(-2).join("") !== "aa") {
+        result.push("a");
+        a--;
+      } else if (b > 0) {
+        result.push("b");
+        b--;
+      }
+    }
+  }
+  return result.join("");
+}
+// console.log(strWithout3a3b(1, 2));
