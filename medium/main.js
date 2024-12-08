@@ -478,3 +478,26 @@ function singleNonDuplicate(array) {
   }
 }
 // console.log(singleNonDuplicate([1, 1, 2, 3, 3, 4, 4, 8, 8]));
+
+// 22) Given a non-negative integer c, decide whether there're two integers a and b such that a2 + b2 = c
+// Input: c = 5
+// Output: true
+// Explanation: 1 * 1 + 2 * 2 = 5
+
+function judgeSquareSum(n) {
+  let left = 0;
+  let right = Math.floor(Math.sqrt(n));
+  while (left <= right) {
+    const sum = left * left + right * right;
+    if (sum === n) {
+      return true;
+    }
+    if (sum < n) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+  return false;
+}
+// console.log(judgeSquareSum(5));
