@@ -19,8 +19,10 @@ You can search for each task within the file to find its details. 🔍
 <br>
 
 I also explore algorithms that I encounter while solving tasks on LeetCode. For each algorithm, you can find detailed information in the **Algorithm** folder. The folder is organized into subfolders based on the algorithm type, and each subfolder contains:
+
 - A file with task examples related to the algorithm. 📝
 - An **MD file** providing detailed information about the algorithm, including how it works and when to use it. 📘
+Additionally, I found information about each algorithm and the associated tasks from various online sources, which have helped me deepen my understanding of each concept.
 
 <br>
 
