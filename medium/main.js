@@ -543,7 +543,7 @@ function strWithout3a3b(a, b) {
 // Given three integers lo, hi and k. The task is to sort all integers in the interval [lo, hi] by the power value in ascending order,
 //  if two or more integers have the same power value sort them by ascending order.
 // Return the kth integer in the range [lo, hi] sorted by the power value.
-// Notice that for any integer x (lo <= x <= hi) it is guaranteed that x will transform into 1 using 
+// Notice that for any integer x (lo <= x <= hi) it is guaranteed that x will transform into 1 using
 // these steps and that the power of x is will fit in a 32-bit signed integer.
 // Input: lo = 12, hi = 15, k = 2
 // Output: 13
@@ -578,3 +578,34 @@ function getKth(lo, hi, k) {
   return res[k - 1].num;
 }
 // console.log(getKth(12, 15, 2));
+
+// 25) Given an integer array nums, return the sum of divisors of the integers in that array that have exactly four divisors.
+// If there is no such integer in the array, return 0.
+// Input: nums = [21,4,7]
+// Output: 32
+// Explanation:
+// 21 has 4 divisors: 1, 3, 7, 21
+// 4 has 3 divisors: 1, 2, 4
+// 7 has 2 divisors: 1, 7
+// The answer is the sum of divisors of 21 only.
+
+function sumFourDivisors(nums) {
+  let res = 0;
+  for (let j = 0; j < nums.length; j++) {
+    let num = nums[j];
+    let count = 0;
+    let sum = 0;
+    for (let i = 1; i <= num; i++) {
+      if (num % i === 0) {
+        count++;
+        sum += i;
+      }
+      if (count > 4) break;
+    }
+    if (count === 4) {
+      res += sum;
+    }
+  }
+  return res;
+}
+// console.log(sumFourDivisors([21, 4, 7]));
