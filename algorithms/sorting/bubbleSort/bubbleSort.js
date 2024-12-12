@@ -16,8 +16,6 @@ function bubbleSort(arr) {
 }
 // console.log(bubbleSort([234, 43, 55, 63, 5, 6, 235, 547]));
 
-
-
 // The example of the task by bubble sort
 
 // 1) Sort in Descending Order
