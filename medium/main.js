@@ -37,7 +37,7 @@ function singleNumber(array) {
   return parseInt(
     Object.keys(res)
       .filter((key) => res[key] === 1)
-      .pop()
+      .pop(),
   );
 }
 // console.log(singleNumber([2, 2, 3, 2]));
@@ -182,9 +182,9 @@ function maximumSum(array) {
     res.push(
       array[i]
         .toString()
-        .split("")
+        .split('')
         .map(Number)
-        .reduce((a, b) => a + b, 0)
+        .reduce((a, b) => a + b, 0),
     );
   }
   let digitSumMax = [];
@@ -208,7 +208,7 @@ function maximumSum(array) {
 function lengthOfLongestSubstring(str) {
   let maxLen = 0;
   for (let i = 0; i < str.length; i++) {
-    let temp = "";
+    let temp = '';
     for (let j = i; j < str.length; j++) {
       if (temp.includes(str[j])) {
         maxLen = Math.max(maxLen, temp.length);
@@ -233,7 +233,7 @@ function lengthOfLongestSubstring(str) {
 function groupAnagrams(array) {
   let res = {};
   for (let i = 0; i < array.length; i++) {
-    let key = array[i].toLowerCase().split("").sort().join("");
+    let key = array[i].toLowerCase().split('').sort().join('');
     if (!res[key]) {
       res[key] = [];
     }
@@ -284,9 +284,9 @@ function searchRange(array, target) {
 // Explanation: You need to reduce multiple spaces between two words to a single space in the reversed string.
 
 function reverseWords(str) {
-  let words = str.split(" ").filter((word) => word !== "");
+  let words = str.split(' ').filter((word) => word !== '');
   let reversedWords = words.reverse();
-  return reversedWords.join(" ");
+  return reversedWords.join(' ');
 }
 // console.log(reverseWords("a good   example"));
 
@@ -350,11 +350,7 @@ function nthUglyNumber(n) {
   let byThree = 0;
   let byFive = 0;
   while (uglyNumbers.length < n) {
-    let next = Math.min(
-      uglyNumbers[byTwo] * 2,
-      uglyNumbers[byThree] * 3,
-      uglyNumbers[byFive] * 5
-    );
+    let next = Math.min(uglyNumbers[byTwo] * 2, uglyNumbers[byThree] * 3, uglyNumbers[byFive] * 5);
     uglyNumbers.push(next);
     if (next === uglyNumbers[byTwo] * 2) {
       byTwo++;
@@ -424,11 +420,7 @@ function maxDistance(arrays) {
   for (let i = 1; i < arrays.length; i++) {
     let curMax = arrays[i][arrays[i].length - 1];
     let curMin = arrays[i][0];
-    maxDiff = Math.max(
-      maxDiff,
-      Math.abs(maxElem - curMin),
-      Math.abs(curMax - minElem)
-    );
+    maxDiff = Math.max(maxDiff, Math.abs(maxElem - curMin), Math.abs(curMax - minElem));
     maxElem = Math.max(maxElem, curMax);
     minElem = Math.min(minElem, curMin);
   }
@@ -515,24 +507,24 @@ function strWithout3a3b(a, b) {
   let length = a + b;
   for (let i = 0; i < length; i++) {
     if (b >= a) {
-      if (b > 0 && result.slice(-2).join("") !== "bb") {
-        result.push("b");
+      if (b > 0 && result.slice(-2).join('') !== 'bb') {
+        result.push('b');
         b--;
       } else if (a > 0) {
-        result.push("a");
+        result.push('a');
         a--;
       }
     } else {
-      if (a > 0 && result.slice(-2).join("") !== "aa") {
-        result.push("a");
+      if (a > 0 && result.slice(-2).join('') !== 'aa') {
+        result.push('a');
         a--;
       } else if (b > 0) {
-        result.push("b");
+        result.push('b');
         b--;
       }
     }
   }
-  return result.join("");
+  return result.join('');
 }
 // console.log(strWithout3a3b(1, 2));
 
@@ -609,3 +601,21 @@ function sumFourDivisors(nums) {
   return res;
 }
 // console.log(sumFourDivisors([21, 4, 7]));
+
+// 26) You are given two positive integers n and k. A factor of an integer n is defined as an integer i where n % i == 0.
+// Consider a list of all factors of n sorted in ascending order, return the kth factor in this list or
+// return -1 if n has less than k factors.
+// Input: n = 12, k = 3
+// Output: 3
+// Explanation: Factors list is [1, 2, 3, 4, 6, 12], the 3rd factor is 3.
+
+function kthFactor(n, k) {
+  let array = [];
+  for (let i = 1; i <= n; i++) {
+    if (n % i === 0) {
+      array.push(i);
+    }
+  }
+  return array.length >= k ? array[k - 1] : -1;
+}
+// console.log(kthFactor(12, 3));
