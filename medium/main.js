@@ -647,3 +647,19 @@ function findLonely(array) {
   return res;
 }
 // console.log(findLonely([10, 6, 5, 8]));
+
+// 28) Given an integer num, return three consecutive integers (as a sorted array) that sum to num.
+// If num cannot be expressed as the sum of three consecutive integers, return an empty array.
+// Input: num = 33
+// Output: [10,11,12]
+// Explanation: 33 can be expressed as 10 + 11 + 12 = 33.
+// 10, 11, 12 are 3 consecutive integers, so we return [10, 11, 12].
+
+function sumOfThree(num) {
+  if (num % 3 != 0) {
+    return [];
+  }
+  let mid = num / 3;
+  return [mid - 1, mid, mid + 1];
+}
+// console.log(sumOfThree(33));
