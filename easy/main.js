@@ -45,12 +45,12 @@ function longestCommonPrefix(strs) {
   for (let i = 1; i < strs.length; i++) {
     while (strs[i].indexOf(prefix) !== 0) {
       prefix = prefix.substring(0, prefix.length - 1);
-      if (prefix.length === 0) return "";
+      if (prefix.length === 0) return '';
     }
   }
   return prefix;
 }
-let strings = ["flower", "flow", "flight"];
+let strings = ['flower', 'flow', 'flight'];
 // console.log(longestCommonPrefix(strings));
 
 // 4) Given two strings needle and haystack, return the index of the first occurrence of
@@ -60,7 +60,7 @@ let strings = ["flower", "flow", "flight"];
 // Explanation: "sad" occurs at index 0 and 6.
 
 function strStr(word, str) {
-  let res = "";
+  let res = '';
   for (let i = 0; i < word.length; i++) {
     res += word[i];
 
@@ -109,7 +109,7 @@ let target1 = 5;
 // Explanation: The last word is "World" with length 5.
 
 function lengthOfLastWord(str) {
-  let strSplit = str.trim().split(" ");
+  let strSplit = str.trim().split(' ');
   return strSplit[strSplit.length - 1].length;
 }
 // console.log(lengthOfLastWord("   fly me   to   the moon  "));
@@ -320,7 +320,7 @@ function sortArrayByParity(array) {
 // Output: "1[.]1[.]1[.]1"
 
 function defangIPaddr(str) {
-  return str.replace(/\./g, "[.]");
+  return str.replace(/\./g, '[.]');
 }
 // console.log(defangIPaddr("1.1.1.1"));
 
@@ -399,14 +399,14 @@ function expect(val) {
       if (val === expected) {
         return true;
       } else {
-        throw new Error("Not Equal");
+        throw new Error('Not Equal');
       }
     },
     notToBe: function (expected) {
       if (val !== expected) {
         return true;
       } else {
-        throw new Error("Equal");
+        throw new Error('Equal');
       }
     },
   };
@@ -434,7 +434,7 @@ function expect(val) {
 
 function createHelloWorld() {
   return function () {
-    return "Hello World";
+    return 'Hello World';
   };
 }
 // const f = createHelloWorld();
@@ -513,8 +513,8 @@ function maximum69Number(num) {
   let strNum = num.toString();
   let maxNum = num;
   for (let i = 0; i < strNum.length; i++) {
-    if (strNum[i] === "6") {
-      let newStr = strNum.slice(0, i) + "9" + strNum.slice(i + 1);
+    if (strNum[i] === '6') {
+      let newStr = strNum.slice(0, i) + '9' + strNum.slice(i + 1);
       let newNum = parseInt(newStr);
       maxNum = Math.max(maxNum, newNum);
     }
@@ -552,7 +552,7 @@ function sumOfUnique(array) {
 // Explanation: The digits that appear in s are [1, 2, 3]. The second largest digit is 2.
 
 function secondHighest(str) {
-  let strSplit = str.split("").map(Number);
+  let strSplit = str.split('').map(Number);
   let numElem = strSplit.filter((el) => !isNaN(el));
 
   let uniqueElem = [];
@@ -602,7 +602,7 @@ function kidsWithCandies(array, num) {
 // Explanation: The substring "ee" is of length 2 with the character 'e' only.
 
 function maxPower(str) {
-  let strSplit = str.split("");
+  let strSplit = str.split('');
   let cnt = 1;
   let maxElem = 1;
   for (let i = 0; i < strSplit.length; i++) {
@@ -682,8 +682,8 @@ function countOdds(low, high) {
 // Explanation: As shown, "codeleet" becomes "leetcode" after shuffling.
 
 function restoreString(str, ind) {
-  let strSplit = str.split("");
-  let res = "";
+  let strSplit = str.split('');
+  let res = '';
   for (let i = 0; i < str.length; i++) {
     res += strSplit[ind.indexOf(i)];
   }
@@ -741,18 +741,18 @@ function threeConsecutiveOdds(array) {
 
 function thousandSeparator(num) {
   let str = num.toString();
-  let strSplit = str.split("");
+  let strSplit = str.split('');
   let res = [];
   let cnt = 0;
   for (let i = strSplit.length - 1; i >= 0; i--) {
     res.push(strSplit[i]);
     cnt++;
     if (cnt === 3 && i !== 0) {
-      res.push(".");
+      res.push('.');
       cnt = 0;
     }
   }
-  return res.reverse().join("");
+  return res.reverse().join('');
 }
 // console.log(thousandSeparator(1234));
 
@@ -769,7 +769,7 @@ function halvesAreAlike(str) {
   let left = str.substring(0, str.length / 2);
   let cnt1 = 0;
   let cnt2 = 0;
-  const vowels = "aeiouAEIOU";
+  const vowels = 'aeiouAEIOU';
   for (let i = 0; i < left.length; i++) {
     if (vowels.includes(left[i])) {
       cnt1++;
@@ -799,11 +799,11 @@ function halvesAreAlike(str) {
 
 function truncateSentence(str, k) {
   let res = [];
-  let strSplit = str.split(" ");
+  let strSplit = str.split(' ');
   for (let i = 0; i < k; i++) {
     res.push(strSplit[i]);
   }
-  return res.join(" ");
+  return res.join(' ');
 }
 // console.log(truncateSentence("Hello how are you Contestant", 4));
 
@@ -817,13 +817,13 @@ function truncateSentence(str, k) {
 // Explanation: Sort the words in s to their original positions "This1 is2 a3 sentence4", then remove the numbers.
 
 function sortSentence(str) {
-  let strSplit = str.split(" ");
+  let strSplit = str.split(' ');
   let res = [];
   for (let i = 0; i < strSplit.length; i++) {
     let indStr = strSplit[i]
-      .split("")
+      .split('')
       .filter((el) => !isNaN(el))
-      .join("");
+      .join('');
     let index = Number(indStr);
     res.push({ word: strSplit[i], index: index });
   }
@@ -832,7 +832,7 @@ function sortSentence(str) {
     .map((el) => {
       return el.word.slice(0, el.word.length - 1);
     })
-    .join(" ");
+    .join(' ');
 }
 // console.log(sortSentence("is2 sentence4 This1 a3"));
 
@@ -849,7 +849,7 @@ function largestOddNumber(str) {
       return str.slice(0, i + 1);
     }
   }
-  return "";
+  return '';
 }
 // console.log(largestOddNumber("10133890"));
 
@@ -884,7 +884,7 @@ function reversePrefix(word, ch) {
   if (index === -1) return word;
   let part1 = word.slice(0, index + 1);
   let part2 = word.slice(index + 1);
-  let reversedPart1 = part1.split("").reverse().join("");
+  let reversedPart1 = part1.split('').reverse().join('');
   return reversedPart1 + part2;
 }
 // console.log(reversePrefix("abcdefd", "d"));
@@ -925,7 +925,7 @@ function maximumDifference(nums) {
 function mostWordsFound(array) {
   let maxLength = 0;
   for (let i = 0; i < array.length; i++) {
-    const wordCnt = array[i].split(" ").length;
+    const wordCnt = array[i].split(' ').length;
     maxLength = Math.max(maxLength, wordCnt);
   }
   return maxLength;
@@ -970,13 +970,13 @@ function isSameAfterReversals(num) {
 // Hence, every 'a' appears before every 'b' and we return true.
 
 function checkString(str) {
-  let strSplit = str.split("");
-  let firstB = strSplit.indexOf("b");
+  let strSplit = str.split('');
+  let firstB = strSplit.indexOf('b');
   if (firstB == -1) {
     return true;
   }
   for (let i = firstB; i < strSplit.length; i++) {
-    if (strSplit[i] === "a") {
+    if (strSplit[i] === 'a') {
       return false;
     }
   }
@@ -999,14 +999,14 @@ function checkString(str) {
 function capitalizeTitle(str) {
   return str
     .toLowerCase()
-    .split(" ")
+    .split(' ')
     .map((el) => {
       if (el.length > 2) {
         return el.charAt(0).toUpperCase() + el.slice(1);
       }
       return el;
     })
-    .join(" ");
+    .join(' ');
 }
 // console.log(capitalizeTitle("First leTTeR of EACH Word"));
 
@@ -1029,9 +1029,9 @@ function capitalizeTitle(str) {
 
 function divideString(str, k, fill) {
   let res = [];
-  let strSplit = str.split("");
+  let strSplit = str.split('');
   for (let i = 0; i < strSplit.length; i += k) {
-    res.push(strSplit.slice(i, k + i).join(""));
+    res.push(strSplit.slice(i, k + i).join(''));
   }
   if (res[res.length - 1].length < k) {
     while (res[res.length - 1].length < k) {
@@ -1132,10 +1132,7 @@ function findClosestNumber(array) {
   for (let i = 0; i < array.length; i++) {
     let moduleElem = Math.abs(array[i]);
     let moduleClosest = Math.abs(minElem);
-    if (
-      moduleElem < moduleClosest ||
-      (moduleElem === moduleClosest && array[i] > minElem)
-    ) {
+    if (moduleElem < moduleClosest || (moduleElem === moduleClosest && array[i] > minElem)) {
       minElem = array[i];
     }
   }
@@ -1167,12 +1164,10 @@ function digitSum(str, k) {
     let resArray = [];
     for (let i = 0; i < currentStr.length; i += k) {
       let group = currentStr.slice(i, i + k);
-      let sum = group
-        .split("")
-        .reduce((acc, digit) => acc + parseInt(digit), 0);
+      let sum = group.split('').reduce((acc, digit) => acc + parseInt(digit), 0);
       resArray.push(sum.toString());
     }
-    currentStr = resArray.join("");
+    currentStr = resArray.join('');
   }
   return currentStr;
 }
@@ -1238,16 +1233,16 @@ function strongPasswordCheckerII(str) {
   let hasUppercase = false;
   let hasDigit = false;
   let hasSpecialChar = false;
-  const specialChars = "!@#$%^&*()-+";
+  const specialChars = '!@#$%^&*()-+';
   for (let i = 0; i < str.length; i++) {
     const currElem = str[i];
-    if (currElem >= "a" && currElem <= "z") {
+    if (currElem >= 'a' && currElem <= 'z') {
       hasLowercase = true;
     }
-    if (currElem >= "A" && currElem <= "Z") {
+    if (currElem >= 'A' && currElem <= 'Z') {
       hasUppercase = true;
     }
-    if (currElem >= "0" && currElem <= "9") {
+    if (currElem >= '0' && currElem <= '9') {
       hasDigit = true;
     }
     if (specialChars.includes(currElem)) {
@@ -1438,7 +1433,7 @@ function numberOfCuts(num) {
 // The sentence is circular.
 
 function isCircularSentence(str) {
-  let strSplit = str.split(" ");
+  let strSplit = str.split(' ');
   if (strSplit.length === 1) {
     return strSplit[0].slice(-1) === strSplit[0].slice(0, 1);
   }
@@ -1531,8 +1526,8 @@ function maximumCount(array) {
 function differenceOfSum(nums) {
   let elementSum = nums.reduce((a, b) => a + b, 0);
   let digitSum = nums
-    .join("")
-    .split("")
+    .join('')
+    .split('')
     .map(Number)
     .reduce((a, b) => a + b, 0);
   return Math.abs(elementSum - digitSum);
@@ -1571,7 +1566,7 @@ function getCommon(array1, array2) {
 
 function alternateDigitSum(num) {
   let sum = 0;
-  let numSplit = num.toString().split("");
+  let numSplit = num.toString().split('');
   for (let i = 0; i < numSplit.length; i++) {
     if (i % 2 == 0) {
       sum += numSplit[i] * 1;
@@ -1597,11 +1592,11 @@ function alternateDigitSum(num) {
 // answer = [1,3,2,5,8,3,7,7]. Note that answer contains the separations in the same order.
 
 function separateDigits(array) {
-  let res = "";
+  let res = '';
   for (let i = 0; i < array.length; i++) {
     res += array[i];
   }
-  return res.split("").map(Number);
+  return res.split('').map(Number);
 }
 // console.log(separateDigits([13, 25, 83, 77]));
 
@@ -1653,13 +1648,12 @@ function findTheArrayConcVal(array) {
 
 function vowelStrings(words, left, right) {
   let cnt = 0;
-  let vowels = ["a", "e", "i", "o", "u"];
+  let vowels = ['a', 'e', 'i', 'o', 'u'];
   for (let i = left; i <= right; i++) {
     if (
       vowels.includes(words[i][0]) &&
       vowels.includes(
-        words[i][words[i].length - 1] ||
-          (words[i].length === 1 && vowels.includes(words[i][0]))
+        words[i][words[i].length - 1] || (words[i].length === 1 && vowels.includes(words[i][0])),
       )
     ) {
       cnt++;
@@ -1681,10 +1675,7 @@ function minNumber(array1, array2) {
   }
   let minFromArray1 = Math.min(...array1);
   let minFromArray2 = Math.min(...array2);
-  return Math.min(
-    minFromArray1 * 10 + minFromArray2,
-    minFromArray2 * 10 + minFromArray1
-  );
+  return Math.min(minFromArray1 * 10 + minFromArray2, minFromArray2 * 10 + minFromArray1);
 }
 // console.log(minNumber([4, 1, 3], [5, 7]));
 
@@ -1737,7 +1728,7 @@ function countSeniors(array) {
     res.push(newArray);
   }
   for (let i = 0; i < res.length; i++) {
-    if (res[i] > "60") {
+    if (res[i] > '60') {
       cnt++;
     }
   }
@@ -1771,7 +1762,7 @@ function buyChoco(array, money) {
 // Output: "512301"
 // Explanation: Integer "51230100" has 2 trailing zeros, we remove them and return integer "512301".
 function removeTrailingZeros(num) {
-  return num.replace(/0+$/, "");
+  return num.replace(/0+$/, '');
 }
 // console.log(removeTrailingZeros("51230100"));
 
@@ -1896,7 +1887,7 @@ function numberOfEmployeesWhoMetTarget(hours, target) {
 // Explanation: "burg" is prefix of "burger" which is the 4th word in the sentence.
 
 function isPrefixOfWord(str, pref) {
-  let strSplit = str.split(" ");
+  let strSplit = str.split(' ');
   for (let i = 0; i < strSplit.length; i++) {
     if (strSplit[i].startsWith(pref)) {
       return i + 1;
@@ -2001,8 +1992,8 @@ function maxLengthBetweenEqualCharacters(str) {
 
 function makeFancyString(str) {
   let cnt = 0;
-  let res = "";
-  let strSplit = str.split("");
+  let res = '';
+  let strSplit = str.split('');
   for (let i = 0; i < strSplit.length; i++) {
     if (strSplit[i] === strSplit[i + 1]) {
       cnt++;
@@ -2028,7 +2019,7 @@ function makeFancyString(str) {
 // Explanation:
 // s can be made by concatenating "i", "love", and "leetcode" together.
 function isPrefixString(str, array) {
-  let concat = "";
+  let concat = '';
   for (let i = 0; i < array.length; i++) {
     concat += array[i];
     if (concat === str) {
@@ -2101,7 +2092,7 @@ function countKDifference(array, k) {
 // They are strictly increasing from left to right: 1 < 3 < 4 < 6 < 12.
 
 function areNumbersAscending(str) {
-  let strSplit = str.split(" ");
+  let strSplit = str.split(' ');
   let filterNum = strSplit.filter((el, i) => {
     const num = parseInt(el);
     return !isNaN(num);
@@ -2130,11 +2121,11 @@ function areNumbersAscending(str) {
 function minimumSum(num) {
   let numSplit = num
     .toString()
-    .split("")
+    .split('')
     .map(Number)
     .sort((a, b) => a - b);
-  let num1 = "";
-  let num2 = "";
+  let num1 = '';
+  let num2 = '';
   for (let i = 0; i < numSplit.length; i++) {
     if (i % 2 === 0) {
       num1 += numSplit[i];
@@ -2358,14 +2349,14 @@ function romanToInt(str) {
 // Explanation: "amanaplanacanalpanama" is a palindrome.
 
 function isPalindrome(str) {
-  let res = "";
+  let res = '';
   for (let i = str.length - 1; i >= 0; i--) {
     let char = str[i].toLowerCase();
-    if ((char >= "a" && char <= "z") || (char >= "0" && char <= "9")) {
+    if ((char >= 'a' && char <= 'z') || (char >= '0' && char <= '9')) {
       res += char;
     }
   }
-  return res === res.split("").reverse().join("");
+  return res === res.split('').reverse().join('');
 }
 // console.log(isPalindrome("A man, a plan, a canal: Panama"));
 
@@ -2380,7 +2371,7 @@ function isPalindrome(str) {
 // merged: a p b q   r   s
 
 function mergeAlternately(str1, str2) {
-  let res = "";
+  let res = '';
   let maxLength = Math.max(str1.length, str2.length);
   for (let i = 0; i < maxLength; i++) {
     if (i < str1.length) {
@@ -2460,7 +2451,7 @@ function pivotIndex(array) {
 
 function mostCommonWord(str, banned) {
   let wordCount = {};
-  let maxWord = "";
+  let maxWord = '';
   let maxCount = 0;
   let filtered = str.split(/[^a-zA-Z]+/).map((el) => el.toLowerCase());
   let validWords = filtered.filter((el) => el && !banned.includes(el));
@@ -2474,3 +2465,18 @@ function mostCommonWord(str, banned) {
   return maxWord || -1;
 }
 // console.log(mostCommonWord("Bob hit a ball, the hit BALL flew far after it was hit.", ["hit",]));
+
+// 114) You are given two strings s and t.
+// String t is generated by random shuffling string s and then add one more letter at a random position.
+// Return the letter that was added to t.
+// Input: s = "abcd", t = "abcde"
+// Output: "e"
+// Explanation: 'e' is the letter that was added.
+
+function findTheDifference(s, t) {
+  for (let i = 0; i < s.length; i++) {
+    t = t.replace(s[i], '');
+  }
+  return t;
+}
+// console.log(findTheDifference('abcd', 'abcde'));
