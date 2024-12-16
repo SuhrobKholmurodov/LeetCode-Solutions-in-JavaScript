@@ -2498,3 +2498,37 @@ function firstUniqChar(str) {
   return cnt;
 }
 // console.log(firstUniqChar('leetcode'));
+
+// 116) We are playing the Guess Game. The game is as follows:
+// I pick a number from 1 to n. You have to guess which number I picked.
+// Every time you guess wrong, I will tell you whether the number I picked is higher or lower than your guess.
+// You call a pre-defined API int guess(int num), which returns three possible results:
+// -1: Your guess is higher than the number I picked (i.e. num > pick).
+// 1: Your guess is lower than the number I picked (i.e. num < pick).
+// 0: your guess is equal to the number I picked (i.e. num == pick).
+// Return the number that I picked.
+// Input: n = 10, pick = 6
+// Output: 6
+const pick = 6;
+function guess(num) {
+  if (num === pick) {
+    return 0;
+  }
+  return num > pick ? -1 : 1;
+}
+function guessNumber(n) {
+  let low = 1;
+  let high = n;
+  while (low <= high) {
+    const mid = Math.floor((low + high) / 2);
+    const res = guess(mid);
+    if (res === 0) {
+      return mid;
+    } else if (res < 0) {
+      high = mid - 1;
+    } else {
+      low = mid + 1;
+    }
+  }
+}
+// console.log(guessNumber(10));
