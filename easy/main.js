@@ -2592,3 +2592,29 @@ function checkIfPangram(str) {
   return true;
 }
 // console.log(checkIfPangram('thequickbrownfoxjumpsoverthelazydog'));
+
+// 121) Given a 0-indexed integer array nums, return true if it can be made strictly increasing after removing exactly one element,
+// or false otherwise. If the array is already strictly increasing, return true.
+// The array nums is strictly increasing if nums[i - 1] < nums[i] for each index (1 <= i < nums.length).
+// Input: nums = [1,2,10,5,7]
+// Output: true
+// Explanation: By removing 10 at index 2 from nums, it becomes [1,2,5,7].
+// [1,2,5,7] is strictly increasing, so return true.
+
+function canBeIncreasing(nums) {
+  for (let i = 0; i < nums.length; i++) {
+    let tempArray = nums.filter((_, index) => index !== i);
+    let isIncreasing = true;
+    for (let j = 1; j < tempArray.length; j++) {
+      if (tempArray[j] <= tempArray[j - 1]) {
+        isIncreasing = false;
+        break;
+      }
+    }
+    if (isIncreasing) {
+      return true;
+    }
+  }
+  return false;
+}
+// console.log(canBeIncreasing([1, 2, 10, 5, 7]));
