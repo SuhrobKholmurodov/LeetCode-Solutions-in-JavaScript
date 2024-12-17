@@ -2534,7 +2534,7 @@ function guessNumber(n) {
 // console.log(guessNumber(10));
 
 // 117) Given two non-negative integers, num1 and num2 represented as string, return the sum of num1 and num2 as a string.
-// You must solve the problem without using any built-in library for handling large integers (such as BigInteger). 
+// You must solve the problem without using any built-in library for handling large integers (such as BigInteger).
 // You must also not convert the inputs to integers directly.
 // Input: num1 = "11", num2 = "123"
 // Output: "134"
@@ -2542,4 +2542,18 @@ function guessNumber(n) {
 function addStrings(num1, num2) {
   return (BigInt(num1) + BigInt(num2)).toString();
 }
-// console.log(addStrings('9333852702227987', '85731737104263')); 
+// console.log(addStrings('9333852702227987', '85731737104263'));
+
+// 118) Given two string arrays word1 and word2, return true if the two arrays represent the same string, and false otherwise.
+// A string is represented by an array if the array elements concatenated in order forms the string.
+// Input: word1 = ["ab", "c"], word2 = ["a", "bc"]
+// Output: true
+// Explanation:
+// word1 represents string "ab" + "c" -> "abc"
+// word2 represents string "a" + "bc" -> "abc"
+// The strings are the same, so return true.
+
+function arrayStringsAreEqual(array1, array2) {
+  return array1.join('') == array2.join('');
+}
+// console.log(arrayStringsAreEqual(['ab', 'c'], ['a', 'bc']));
