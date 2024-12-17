@@ -2574,3 +2574,21 @@ function maximumWealth(array) {
   return Math.max(...array.map((el) => el.reduce((a, b) => a + b, 0)));
 }
 // console.log(maximumWealth([[1, 5],[7, 3],[3, 5],]),);
+
+// 120) A pangram is a sentence where every letter of the English alphabet appears at least once.
+// Given a string sentence containing only lowercase English letters, return true if sentence is a pangram, or false otherwise.
+// Input: sentence = "thequickbrownfoxjumpsoverthelazydog"
+// Output: true
+// Explanation: sentence contains at least one of every letter of the English alphabet.
+
+function checkIfPangram(str) {
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  const lowerStr = str.toLowerCase();
+  for (let i = 0; i < alphabet.length; i++) {
+    if (!lowerStr.includes(alphabet[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+// console.log(checkIfPangram('thequickbrownfoxjumpsoverthelazydog'));
