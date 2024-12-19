@@ -664,7 +664,6 @@ function sumOfThree(num) {
 }
 // console.log(sumOfThree(33));
 
-
 // 29) Given an integer array nums, find the subarray with the largest sum, and return its sum.
 // Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
 // Output: 6
@@ -680,3 +679,24 @@ function maxSubArray(array) {
   return maxSum;
 }
 // console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+
+// 30) Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+// Input: nums = [1,1,1,2,2,3], k = 2
+// Output: [1,2]
+
+function topKFrequent(array, k) {
+  let obj = {};
+  for (let i = 0; i < array.length; i++) {
+    let num = array[i];
+    if (obj[num] === undefined) {
+      obj[num] = 1;
+    } else {
+      obj[num]++;
+    }
+  }
+  let sortedArr = Object.entries(obj)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, k);
+  return sortedArr.map((el) => Number(el[0]));
+}
+// console.log(topKFrequent([1, 1, 1, 2, 2, 3], 2));
