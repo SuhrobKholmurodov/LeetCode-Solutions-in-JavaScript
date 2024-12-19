@@ -2618,3 +2618,19 @@ function canBeIncreasing(nums) {
   return false;
 }
 // console.log(canBeIncreasing([1, 2, 10, 5, 7]));
+
+// 122) Given an integer array nums, find the subarray with the largest sum, and return its sum.
+// Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+// Output: 6
+// Explanation: The subarray [4,-1,2,1] has the largest sum 6.
+
+function maxSubArray(array) {
+  let maxSum = array[0];
+  let currSum = array[0];
+  for (let i = 1; i < array.length; i++) {
+    currSum = Math.max(array[i], currSum + array[i]);
+    maxSum = Math.max(maxSum, currSum);
+  }
+  return maxSum;
+}
+// console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
