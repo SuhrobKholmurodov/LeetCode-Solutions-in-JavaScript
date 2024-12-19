@@ -663,3 +663,20 @@ function sumOfThree(num) {
   return [mid - 1, mid, mid + 1];
 }
 // console.log(sumOfThree(33));
+
+
+// 29) Given an integer array nums, find the subarray with the largest sum, and return its sum.
+// Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+// Output: 6
+// Explanation: The subarray [4,-1,2,1] has the largest sum 6.
+
+function maxSubArray(array) {
+  let maxSum = array[0];
+  let currSum = array[0];
+  for (let i = 1; i < array.length; i++) {
+    currSum = Math.max(array[i], currSum + array[i]);
+    maxSum = Math.max(maxSum, currSum);
+  }
+  return maxSum;
+}
+// console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
