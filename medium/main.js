@@ -700,3 +700,33 @@ function topKFrequent(array, k) {
   return sortedArr.map((el) => Number(el[0]));
 }
 // console.log(topKFrequent([1, 1, 1, 2, 2, 3], 2));
+
+// 31) Given a string s, return the longest palindromic substring in s.
+// Input: s = "babad"
+// Output: "bab"
+// Explanation: "aba" is also a valid answer.
+
+function longestPalindrome(str) {
+  let maxLength = 0;
+  let res = '';
+  function isPalindrome(substring) {
+    for (let i = 0; i < substring.length; i++) {
+      if (substring[i] !== substring[substring.length - 1 - i]) {
+        return false;
+      }
+    }
+    return true;
+  }
+  for (let i = 0; i < str.length; i++) {
+    for (let j = i + 1; j <= str.length; j++) {
+      let substring = str.slice(i, j);
+      if (substring.length <= maxLength) continue;
+      if (isPalindrome(substring)) {
+        maxLength = substring.length;
+        res = substring;
+      }
+    }
+  }
+  return res;
+}
+// console.log(longestPalindrome('babad'));
