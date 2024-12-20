@@ -2620,7 +2620,7 @@ function canBeIncreasing(nums) {
 // console.log(canBeIncreasing([1, 2, 10, 5, 7]));
 
 // 122) Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that
-// each unique element appears only once. The relative order of the elements should be kept the same. 
+// each unique element appears only once. The relative order of the elements should be kept the same.
 // Then return the number of unique elements in nums.
 // Consider the number of unique elements of nums to be k, to get accepted, you need to do the following things:
 // Change the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially. The remaining elements of nums are not important as well as the size of nums.
@@ -2641,4 +2641,24 @@ function removeDuplicates(array) {
   }
   return array.length;
 }
-// console.log(removeDuplicates([1, 1, 2])); 
+// console.log(removeDuplicates([1, 1, 2]));
+
+// 123) You are given an array prices where prices[i] is the price of a given stock on the ith day.
+// You want to maximize your profit by choosing a single day to buy one stock and choosing a
+// different day in the future to sell that stock.
+// Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+// Input: prices = [7,1,5,3,6,4]
+// Output: 5
+// Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+// Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell
+
+function maxProfit(array) {
+  let maxProfit = 0;
+  let minPrice = array[0];
+  for (let i = 0; i < array.length; i++) {
+    minPrice = Math.min(minPrice, array[i]);
+    maxProfit = Math.max(maxProfit, array[i] - minPrice);
+  }
+  return maxProfit;
+}
+// console.log(maxProfit([7, 6, 4, 3, 1]));
