@@ -731,8 +731,8 @@ function longestPalindrome(str) {
 }
 // console.log(longestPalindrome('babad'));
 
-// 32) Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. 
-// Return the answer in any order. A mapping of digits to letters (just like on the telephone buttons) is given below. 
+// 32) Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent.
+// Return the answer in any order. A mapping of digits to letters (just like on the telephone buttons) is given below.
 // Note that 1 does not map to any letters.
 // Input: digits = "23"
 // Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
@@ -766,3 +766,27 @@ function letterCombinations(digits) {
   return res;
 }
 // console.log(letterCombinations('23'));
+
+// 33) Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times.
+// Input: nums = [3,2,3]
+// Output: [3]
+
+function majorityElement(array) {
+  let arrayLength = array.length;
+  let cnt = 0;
+  let res = [];
+  for (let i = 0; i < arrayLength; i++) {
+    cnt = 1;
+    for (let j = i + 1; j < arrayLength; j++) {
+      if (array[i] === array[j]) {
+        cnt++;
+      }
+    }
+    if (cnt > arrayLength / 3 && !res.includes(array[i])) {
+      res.push(array[i]);
+    }
+    cnt = 0;
+  }
+  return res;
+}
+// console.log(majorityElement([3, 2, 3]));
